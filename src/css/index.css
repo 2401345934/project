@@ -1,0 +1,221 @@
+body, ul, li, dl, dt, dd, p, ol, h1, h2, h3, h4, h5, h6, form, img, table, fieldset, legend, figure, figcaption {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+img, fieldset {
+    border: 0;
+}
+
+img {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+body {
+    font-family: "微软雅黑";
+    font-size: 12px;
+}
+
+input, a {
+    outline: none;
+}
+
+html {
+    overflow-x: hidden;
+}
+
+i {
+    font-style: normal;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clear:after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+.bx {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/*header*/
+.header-wrap {
+    border-top: 1px solid #dadce0;
+    background: #f5f5f5;
+    height: 30px;
+}
+
+.header {
+    height: 30px;
+}
+
+.header>div {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 86px;
+    position: relative;
+}
+
+.header-div .header-div-div {
+    width: 500px;
+    height: 255px;
+    border: 1px solid #ccc;
+    display: none;
+}
+
+.header-div div .top {
+    height: 41px;
+    width: 500px;
+}
+
+.header-div div .top h4 {
+    float: left;
+    padding-left: 15px;
+}
+
+.header-div div .top p {
+    float: right;
+    padding-right: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header-div div .bottom {
+    width: 500px;
+}
+
+.header-div div .bottom p {
+    width: 68px;
+    height: 28px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    position: relative;
+    left: 15px;
+    cursor: pointer;
+    text-align: center;
+    background: #f8f8f8;
+}
+
+
+.header-div div .bottom .btn2{
+    border-top: 2px solid #f10180;
+    background: #fff;
+}
+
+.header-div div .bottom .bottom-r {
+    width: 500px;
+    margin-top: 5px;
+    margin-left: 20px;
+    /*display: none;*/
+}
+
+.header-div div .bottom .bottom-l {
+    width: 500px;
+    margin-top: 5px;
+    margin-left: 20px;
+    display: none;
+}
+
+.header-div div .bottom .bottom-r ul ,.header-div div .bottom .bottom-l ul{
+    float: left !important;
+    margin-right: 25px;
+}
+
+.header-div div .bottom .bottom-r ul li ,.header-div div .bottom .bottom-l ul{
+    float: none;
+}
+
+.header-div div .bottom .bottom-r ul li a,.header-div div .bottom .bottom-l ul a{
+    display: inline-block;
+    width: 56px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border: 1px solid transparent;
+}
+
+.header-div div .bottom .bottom-r ul li a:hover,.header-div div .bottom .bottom-l ul a:hover{
+    border: 1px solid #f10180;
+}
+
+.header div i {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    width: 0;
+    height: 0;
+    border: 5px solid;
+    border-color: #ccc transparent transparent transparent;
+}
+
+.header>ul {
+    float: right;
+    text-align: center;
+}
+
+.header>ul>li {
+    float: left;
+    margin: 0 15px 0 12px;
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    font-size: 12px;
+}
+
+
+.header>ul>li .span1 {
+    position: relative;
+    left: -8px;
+}
+
+.header>ul>li .span2 {
+    position: relative;
+    left: -8px;
+}
+
+.header>ul>li .dl{
+    width: 73px;
+    display: inline-block;
+}
+
+.header>ul>li .dl:hover {
+    background: #fff;
+}
+
+.header>ul>li .dl:hover i{
+    display: none;
+}
+
+.header ul li i {
+    margin-left: 12px;
+}
+
+/*nav*/
