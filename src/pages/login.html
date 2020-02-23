@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+<header class="bx">
+    <div class="left"></div>
+    <div class="right"></div>
+</header>
+<div class="wrap ">
+    <div class="bx">
+        <div class="content">
+            <h1>会员登陆</h1>
+            <input type="text" username="username" placeholder="请输入您用户名" id="username">
+            <br>
+            <input type="password" username="password" placeholder="请输入您密码" id="password">
+            <br>
+            <div class="btn">登陆</div>
+
+        </div>
+    </div>
+</div>
+<div class="footer bx">
+    <div class="footer-c">
+        <p>Copyright 2008-2020 vip.com，All Rights Reserved ICP证：粤 B2-20080329</p>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('.btn').click(function () {
+                $.ajax({
+                    url: '../php/login.php',
+                    type: 'post',
+                    data: `username=${$('#username').val()}&password=${$('#password').val()}`,
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res === 1) {
+                            location.href = './index.html';
+                        } else {
+                            alert('您还没有注册,请先注册');
+                        }
+                    }
+                })
+        })
+        $('.btn').mousedown(function () {
+            $(this).css({
+                opacity: .3
+            })
+        })
+        $('.btn').mouseup(function () {
+            $(this).css({
+                opacity: 1
+            })
+        })
+    })
+</script>
+</body>
+</html>

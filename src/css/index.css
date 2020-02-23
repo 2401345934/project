@@ -74,7 +74,7 @@ i {
     height: 30px;
 }
 
-.header>div {
+.header > div {
     float: left;
     height: 30px;
     line-height: 30px;
@@ -123,8 +123,7 @@ i {
     background: #f8f8f8;
 }
 
-
-.header-div div .bottom .btn2{
+.header-div div .bottom .btn2 {
     border-top: 2px solid #f10180;
     background: #fff;
 }
@@ -143,16 +142,16 @@ i {
     display: none;
 }
 
-.header-div div .bottom .bottom-r ul ,.header-div div .bottom .bottom-l ul{
+.header-div div .bottom .bottom-r ul, .header-div div .bottom .bottom-l ul {
     float: left !important;
     margin-right: 25px;
 }
 
-.header-div div .bottom .bottom-r ul li ,.header-div div .bottom .bottom-l ul{
+.header-div div .bottom .bottom-r ul li, .header-div div .bottom .bottom-l ul {
     float: none;
 }
 
-.header-div div .bottom .bottom-r ul li a,.header-div div .bottom .bottom-l ul a{
+.header-div div .bottom .bottom-r ul li a, .header-div div .bottom .bottom-l ul a {
     display: inline-block;
     width: 56px;
     height: 20px;
@@ -161,7 +160,7 @@ i {
     border: 1px solid transparent;
 }
 
-.header-div div .bottom .bottom-r ul li a:hover,.header-div div .bottom .bottom-l ul a:hover{
+.header-div div .bottom .bottom-r ul li a:hover, .header-div div .bottom .bottom-l ul a:hover {
     border: 1px solid #f10180;
 }
 
@@ -176,12 +175,12 @@ i {
     border-color: #ccc transparent transparent transparent;
 }
 
-.header>ul {
+.header > ul {
     float: right;
     text-align: center;
 }
 
-.header>ul>li {
+.header > ul > li {
     float: left;
     margin: 0 15px 0 12px;
     height: 30px;
@@ -190,27 +189,26 @@ i {
     font-size: 12px;
 }
 
-
-.header>ul>li .span1 {
+.header > ul > li .span1 {
     position: relative;
     left: -8px;
 }
 
-.header>ul>li .span2 {
+.header > ul > li .span2 {
     position: relative;
     left: -8px;
 }
 
-.header>ul>li .dl{
+.header > ul > li .dl {
     width: 73px;
     display: inline-block;
 }
 
-.header>ul>li .dl:hover {
+.header > ul > li .dl:hover {
     background: #fff;
 }
 
-.header>ul>li .dl:hover i{
+.header > ul > li .dl:hover i {
     display: none;
 }
 
@@ -219,3 +217,64 @@ i {
 }
 
 /*nav*/
+
+/*sidebar*/
+
+.sidebar {
+    height: 100%;
+    width: 36px;
+    background: #262626;
+    position: fixed;
+    right: 0;
+}
+
+.sidebar-t {
+    text-align: center;
+    height: 51px;
+    position: relative;
+}
+
+.sidebar-t > span {
+    color: #fff ;
+    margin-top: 72px;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.sidebar-t > p {
+    color: #fff ;
+
+}
+
+/*sidebar*/
+
+/*login*/
+.login {
+    width: 275px;
+    height: 310px;
+    position: fixed;
+    right: 36px;
+    top: 72px;
+    background: #f8f8f8;
+    border: 1px solid #cecece;
+    border-right: none;
+}
+
+
+.login-t {
+    text-align: center;
+}
+
+.login-t img {
+    margin-top: 34px;
+    margin-left: 100px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    border: 1px solid #eee;
+}
+
+.login-t p a {
+    color: hotpink;
+}
+
+/*login*/
