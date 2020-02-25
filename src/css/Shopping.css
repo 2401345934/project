@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+ul {
+    list-style: none;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+    color: orangered;
+    border: 3px solid #00CCFF;
+}
+
+ul li button {
+    width: 300px;
+    height: 60px;
+    background: seagreen;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#box {
+    background: #eee;
+    height: 80px;
+
+}
+
+td {
+    width: 200px;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+}
+
+span {
+    display: inline-block;
+    position: relative;
+    left: 10px;
+    color: orangered;
+    top: -40px;
+}
+
+#price {
+    font-size: 30px;
+}
+
+#price input {
+    margin-left: 30px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.wrap {
+    position: absolute;
+}

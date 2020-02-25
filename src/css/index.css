@@ -16,7 +16,7 @@ img {
 }
 
 a {
-    text-decoration: none;
+    text-decoration: none !important;
     color: #333;
 }
 
@@ -79,6 +79,7 @@ i {
     height: 30px;
     line-height: 30px;
     width: 86px;
+    margin-left: 13px;
     position: relative;
 }
 
@@ -87,6 +88,7 @@ i {
     height: 255px;
     border: 1px solid #ccc;
     display: none;
+    background: #fff;
 }
 
 .header-div div .top {
@@ -126,6 +128,7 @@ i {
 .header-div div .bottom .btn2 {
     border-top: 2px solid #f10180;
     background: #fff;
+    float: left;
 }
 
 .header-div div .bottom .bottom-r {
@@ -212,6 +215,10 @@ i {
     display: none;
 }
 
+.header > ul > li a:hover {
+    color: #f10983;
+}
+
 .header ul li i {
     margin-left: 12px;
 }
@@ -226,25 +233,108 @@ i {
     background: #262626;
     position: fixed;
     right: 0;
+    z-index: 999;
 }
 
 .sidebar-t {
     text-align: center;
     height: 51px;
     position: relative;
+    margin-top: 72px;
 }
 
 .sidebar-t > span {
-    color: #fff ;
-    margin-top: 72px;
+    color: #fff;
     display: inline-block;
     font-size: 20px;
 }
 
 .sidebar-t > p {
-    color: #fff ;
+    color: #fff;
+}
+
+/*购物车*/
+.Shopping {
+    background: #f10983;
+    color: #fff;
+    text-align: center;
+    height: 151px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.Shopping span {
+    margin-top: 22px;
+    display: block;
+    font-size: 22px;
+}
+
+.Shopping p {
+    font-size: 14px;
 
 }
+/*购物车*/
+
+.sidebar-c {
+    text-align: center;
+}
+
+.sidebar-q span ,.sidebar-w span,.sidebar-e span,.sidebar-r span,.sidebar-y span ,.sidebar-u span {
+    color: #fff !important;
+    font-size: 26px;
+    margin-bottom: 10px;
+    display: block;
+    cursor: pointer;
+}
+.sidebar-q span {
+    margin-top: 1px;
+}
+
+.sidebar-q span:hover ,.sidebar-w span:hover,.sidebar-e span:hover,.sidebar-r span:hover,.sidebar-y span:hover  ,.sidebar-u span:hover{
+    background: #f10983 !important;
+}
+
+.sidebar-u span {
+    margin-top: 70px;
+}
+
+.sidebar-q div ,.sidebar-w div,.sidebar-e div,.sidebar-r div,.sidebar-y div ,.sidebar-u div {
+    position: fixed;
+    background: red;
+    width: 0px;
+    height: 36px;
+    color: #fff;
+    right: 36px;
+    text-align: center;
+    line-height: 36px;
+    opacity: 0;
+    z-index: 5;
+}
+
+.sidebar-y {
+    cursor: pointer;
+}
+
+.sidebar-q div {
+    top: 275px;
+}
+.sidebar-w div {
+    top: 325px;
+}
+.sidebar-e div {
+    top: 373px;
+}
+.sidebar-r div{
+    top: 422px;
+}
+.sidebar-u div {
+    bottom: 56px;
+}
+
+.sidebar-y div {
+    bottom:7px;
+}
+
 
 /*sidebar*/
 
@@ -255,11 +345,12 @@ i {
     position: fixed;
     right: 36px;
     top: 72px;
-    background: #f8f8f8;
     border: 1px solid #cecece;
     border-right: none;
+    display: none;
+    background: #fff;
+    z-index: 5;
 }
-
 
 .login-t {
     text-align: center;
@@ -277,4 +368,332 @@ i {
     color: hotpink;
 }
 
+.login-b {
+    margin-top: 30px;
+}
+
+.login-b-l {
+    width: 137px;
+    height: 104px;
+    float: left;
+    background: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-b-l span, .login-b-r span {
+    font-size: 26px;
+}
+
+.login-b-r {
+    width: 137px;
+    height: 104px;
+    float: right;
+    background: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /*login*/
+
+/*nav*/
+.nav {
+    height: 100px;
+    text-align: center;
+}
+
+.nav-l {
+    height: 100px;
+}
+
+
+.nav-l img {
+    display: inline-block;
+
+}
+
+.nav-l .nav-img {
+    width: 304px;
+    height: 100px;
+}
+
+.nav-c {
+    margin-left: 30px;
+    height: 100px;
+    width: 391px;
+}
+
+.nav-c input {
+    width: 335px;
+    height: 32px;
+    border: 2px solid #fa2a83;
+    padding-left: 6px;
+    margin-top: 34px;
+}
+
+.nav-c div {
+    float: right;
+    height: 32px;
+    width: 52px;
+    background: #fa2a83;
+    margin-top: 34px;
+    margin-left: -4px;
+    position: relative;
+    z-index: -1;
+}
+
+.nav-c ul {
+    margin-left: 4px;
+    color: #999999;
+}
+
+.nav-c ul li {
+    float: left;
+    cursor: pointer;
+}
+
+.nav-c ul li i {
+    margin: 0 11px ;
+    cursor: default;
+}
+
+.nav-c div span {
+    line-height: 32px;
+}
+
+.nav-r {
+    width: 96px;
+    height: 34px;
+    background: #f6f7f9;
+    text-align: center;
+    margin-top: 34px;
+    margin-left: 15px;
+    position: relative;
+    line-height: 34px;
+    cursor: pointer;
+}
+.nav-r span {
+    display: inline-block;
+    margin-left: -6px;
+}
+
+.nav-r p {
+    display: inline-block;
+
+}
+
+.nav-r div {
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    background: #fa2a83;
+    border-radius: 8px;
+    position: relative;
+    left: 6px;
+    text-align: center;
+    line-height: 16px;
+    color: #fff;
+}
+
+
+/*nav*/
+
+
+/*suspension*/
+
+
+.suspension-wrap {
+    height: 43px;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    z-index: 2;
+    width: 100%;
+    display: none;
+}
+
+.suspension {
+    height: 43px;
+    line-height: 43px;
+
+}
+
+.suspension .ul1{
+    display: inline-block;
+    float: left;
+    width: 155px;
+    background: #f10180;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+
+.suspension .ul3{
+    display: inline-block;
+    float: left;
+    font-size: 16px;
+
+}
+
+.suspension .ul2{
+    float: left;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.ul2 li {
+    float: left;
+    margin: 0 13px;
+    cursor: pointer;
+}
+.ul2 li:nth-child(1){
+    color: #f10180;
+}
+/*suspension*/
+
+/*main*/
+
+
+.main {
+    height: 43px;
+    background: #fff;
+    width: 100%;
+}
+
+.main {
+    height: 43px;
+    line-height: 43px;
+
+}
+
+.main .ul1{
+    display: inline-block;
+    float: left;
+    width: 155px;
+    background: #f10180;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+}
+
+.main .ul3{
+    display: inline-block;
+    float: left;
+    font-size: 16px;
+
+}
+
+.main .ul2{
+    float: left;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.ul2 li {
+    float: left;
+    margin: 0 13px;
+    cursor: pointer;
+}
+.ul2 li:nth-child(1){
+    color: #f10180;
+}
+/*main*/
+
+/*banner*/
+
+.banner-wrap {
+    background: url("../img/15762201092731.jpg");
+    height: 380px;
+    overflow: hidden;
+}
+
+
+
+.swiper-container{
+    width: 974px;
+    height: 340px;
+    position: relative;
+    left: 39px;
+    top: 43px;
+}
+.swiper-slide img {
+    width: 974px;
+    height: 340px;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner-l {
+    width: 0px;
+    height: 66px;
+    background: rgba(0,0,0,.2);
+    line-height: 66px;
+    position: absolute;
+    top: 40%;
+    left: 8px;
+    z-index: 3;
+}
+.swiper-button-prev {
+    position: absolute;
+    left: 5px;
+    top: 24px;
+    display: none;
+}
+
+
+.banner-r {
+    width: 0px;
+    height: 66px;
+    background: rgba(0,0,0,.2);
+    line-height: 66px;
+    position: absolute;
+    top: 40%;
+    right: 8px;
+    z-index: 3;
+}
+.swiper-button-next {
+    position: absolute;
+    left: 5px;
+    top: 24px;
+    display: none;
+}
+
+.swiper-pagination-bullet {
+    width: 195px;
+    height: 5px;
+    border-radius: 2px;
+    position: relative;
+    top: 10px;
+}
+
+/*banner*/
+
+/*paging*/
+.paging-c img {
+    width: 1000px ;
+}
+
+
+.img1 , .img2 {
+    width: 496px !important;
+    height: 240px !important;
+    float: left;
+}
+
+.ppl {
+    overflow: hidden;
+}
+
+.ppl img {
+    width: 496px !important;
+    float: left;
+}
+/*paging*/

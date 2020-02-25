@@ -36,6 +36,15 @@
 </div>
 <script>
     $(function () {
+        $('.left').mouseover(function () {
+            $(this).css({
+                cursor: 'pointer',
+            })
+        })
+
+        $('.left').click(function () {
+            location.href = './index.html';
+        })
 
         var falg1 = false;
         $('#username').change(function () {

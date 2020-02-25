@@ -21,6 +21,7 @@
             <input type="password" username="password" placeholder="请输入您密码" id="password">
             <br>
             <div class="btn">登陆</div>
+            <a href="./register.html" style="margin-top: 10px;display: block">注册点我</a>
 
         </div>
     </div>
@@ -32,6 +33,16 @@
 </div>
 <script>
     $(function () {
+        $('.left').mouseover(function () {
+            $(this).css({
+                cursor: 'pointer',
+            })
+        })
+
+        $('.left').click(function () {
+            location.href = './index.html';
+        })
+
         $('.btn').click(function () {
                 $.ajax({
                     url: '../php/login.php',

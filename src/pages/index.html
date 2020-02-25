@@ -3,34 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <title>唯品会</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../node_modules/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="../font/iconfont.css">
-    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/index.css">
-    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/swiper/js/swiper.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../js/index.js"></script>
 </head>
 <body>
 
-<!--login-->
-<div class="login">
-    <div class="login-t">
-        <img src="../img/my_cnt_pic.jpg" alt="">
-        <p>您好！ 请 <a href="login.html">登陆</a> | <a href="register.html">注册</a></p>
-    </div>
-    <div class="login-b">
-        
-    </div>
-</div>
-<!--login-->
 
 <!--侧边栏-->
 <div class="sidebar">
     <div class="sidebar-t">
-        <span class="iconfont icon-zhanghao " ></span>
+        <span class="iconfont icon-zhanghao "></span>
         <p>账号</p>
 
+
+        <!--login-->
+        <div class="login">
+            <div class="login-t">
+                <img src="../img/my_cnt_pic.jpg" alt="">
+                <p>您好！ 请 <a href="login.html">登陆</a> | <a href="register.html">注册</a></p>
+            </div>
+            <div class="login-b">
+                <div class="login-b-l">
+                    <span class="iconfont icon-qianbao"></span>
+                    我的订单
+                </div>
+                <div class="login-b-r">
+                    <span class="iconfont icon-lishijilu"></span>
+                    我的唯品币
+                </div>
+            </div>
+        </div>
+        <!--login-->
+
     </div>
+    <div class="sidebar-c">
+        <div class="Shopping">
+            <span class="iconfont icon-weipinhui "></span>
+            <p>购</p>
+            <p>物</p>
+            <p>车</p>
+        </div>
+
+        <div class="sidebar-q   sidebar-z">
+            <span class="iconfont icon-qianbao"></span>
+            <div>我的优惠卷</div>
+        </div>
+        <div class="sidebar-w  sidebar-z">
+            <span class="iconfont icon-aixin"></span>
+            <div>品牌收藏</div>
+
+        </div>
+        <div class="sidebar-e  sidebar-z">
+            <span class="iconfont icon-xingxing"></span>
+            <div>商品收藏</div>
+
+        </div>
+        <div class="sidebar-r sidebar-z">
+            <span class="iconfont icon-lishijilu1"></span>
+            <div>我的足迹</div>
+
+        </div>
+        <div class="sidebar-u  sidebar-z">
+            <span class="iconfont icon-pan_icon"></span>
+            <div>会员反馈</div>
+
+        </div>
+        <div class="sidebar-y  sidebar-z">
+            <span class="iconfont icon-jiantoushang"></span>
+            <div>返回顶部</div>
+
+        </div>
+    </div>
+
+
 </div>
 
 
@@ -45,7 +97,8 @@
                     <p>x</p>
                 </div>
                 <div class="bottom">
-                   <p class="btn1">省份</p><p class="btn2">城市</p>
+                    <p class="btn1">省份</p>
+                    <p class="btn2">城市</p>
                     <div class="bottom-l">
                         <ul>
                             <li><a href="#">北京市</a></li>
@@ -133,7 +186,7 @@
         </div>
 
         <ul>
-            <li><a href="javascript:;"  class="dl">请登录</a>
+            <li><a href="javascript:;" class="dl">请登录</a>
                 <i>/</i>
 
             </li>
@@ -150,6 +203,146 @@
     </div>
 </div>
 <!--search-->
-<div class="nav"></div>
+<div class="nav bx">
+    <div class="nav-l">
+        <img src="../img/1580982686544.gif" alt="">
+        <img src="../img/1561344075509.png" alt="" class="nav-img">
+    </div>
+    <div class="nav-c">
+        <input type="text" placeholder="护肤套装">
+
+        <div>
+            <span class="iconfont icon-sousuo"></span>
+        </div>
+        <ul>
+            <!--<li>护肤套装<i>|</i></li>-->
+            <!--<li>手机<i>|</i></li>-->
+            <!--<li>女式外套<i>|</i></li>-->
+            <!--<li>女式衬衫<i>|</i></li>-->
+            <!--<li>面膜<i>|</i></li><i>-->
+            <!--<li>女式大衣</li>-->
+        </ul>
+    </div>
+    <div class="nav-r">
+        <span class="iconfont icon-lihe"></span>
+        <p>购物袋</p>
+        <div>0</div>
+    </div>
+</div>
+<!--search-->
+
+<!--suspension-->
+<div class="suspension-wrap">
+    <div class="suspension bx">
+        <div class="ul1">商品分类</div>
+        <ul class="ul2">
+            <!--<li>首页</li>-->
+            <!--<li>最后疯抢</li>-->
+            <!--<li>唯品快抢</li>-->
+            <!--<li>女装</li>-->
+            <!--<li>母婴</li>-->
+            <!--<li>家电</li>-->
+            <!--<li>国际</li>-->
+            <!--<li>美妆</li>-->
+            <!--<li>鞋包</li>-->
+            <!--<li>男装</li>-->
+            <!--<li>预告</li>-->
+        </ul>
+
+        <div class="ul3">
+            更多
+        </div>
+    </div>
+
+</div>
+<!--suspension-->
+
+<div class="main bx">
+    <div class="suspension bx">
+        <div class="ul1">商品分类</div>
+        <ul class="ul2">
+            <!--<li>首页</li>-->
+            <!--<li>最后疯抢</li>-->
+            <!--<li>唯品快抢</li>-->
+            <!--<li>女装</li>-->
+            <!--<li>母婴</li>-->
+            <!--<li>家电</li>-->
+            <!--<li>国际</li>-->
+            <!--<li>美妆</li>-->
+            <!--<li>鞋包</li>-->
+            <!--<li>男装</li>-->
+            <!--<li>预告</li>-->
+        </ul>
+
+        <div class="ul3">
+            更多
+        </div>
+    </div>
+
+</div>
+</div>
+<!--banner-->
+<div class="banner-wrap">
+    <div class="banner bx">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="../img/15821816779797.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="../img/15825085165749.jpg" alt=""></div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination">
+
+            </div>
+
+            <!-- 如果需要导航按钮 -->
+            <div class="banner-l">
+                <div class="swiper-button-prev"></div>
+
+            </div>
+            <div class="banner-r">
+                <div class="swiper-button-next"></div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--banner-->
+
+<!--paging-->
+<div class="paging-wrap">
+    <div class="paging bx">
+        <div class="paging-t">
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item " aria-current="page">
+                        <a class="page-link" href="#">2 </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">下一页</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="paging-c ">
+            <img src="../img/15810587551894.jpg.webp" alt="">
+            <img src="../img/15810587949571.jpg.webp" alt="" class="img1">
+            <img src="../img/15810594356389.jpg.webp" alt="" class="img2">
+            <img src="../img/15344789862278.jpg" alt="">
+        </div>
+        <div class="ppl">
+        </div>
+    </div>
+</div>
+<!--paging-->
+
 </body>
 </html>

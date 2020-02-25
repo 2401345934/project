@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #list li {
+            list-style: none;
+            float: left;
+            width: 230px;
+            border: 1px solid #cecece;
+            padding: 10px;
+            margin: 30px;
+            height: 250px;
+
+        }
+
+        #list {
+            margin-left: 100px;
+            width: 100%;
+            height: 250px;
+        }
+
+        #list p {
+            margin: 0 20px;
+        }
+
+        #list input {
+            width: 100%;
+            height: 60px;
+            background: orange;
+            display: none;
+
+        }
+
+        #list li:hover input {
+            display: block;
+        }
+
+        #cart-list {
+            width: 100%;
+            height: 250px;
+            margin-top: 250px;
+            /* position: relative; */
+          
+        }
+
+        #cart-list li {
+
+            list-style: none;
+            /* position: absolute;
+            left: 50px; */
+            width: 1500px;
+            border-bottom: 1px solid red;
+         
+            padding: 10px;
+            margin: 10px -25px;
+            height: 250px;
+        
+            position: relative;
+            /* position: absolute;
+            left: 0px; */
+        }
+
+        #cart-list p {
+            margin: 0 20px;
+           
+
+        }
+
+#cart-list li p:nth-of-type(2){
+    position: absolute;
+            right: 600px;
+            top:135px ;
+            font-size: 20px;
+}
+        #cart-list li input {
+            margin: 20px 10px;
+            width: 100px;
+            height: 40px;
+            background: red;
+            position: absolute;
+            top:100px;
+            right: 300px;
+            
+          
+           
+           
+
+        }
+
+        .action {
+            margin: 100px 30px;
+        }
+        table{
+            width: 1500px;
+            height: 100px;
+            position: absolute;
+            top: 355px;
+            left: 9px;
+            border-top: solid 1px red;
+            border-bottom: solid 1px red;
+            line-height: 70px;
+            
+        }
+        td:nth-of-type(1){
+         text-indent: 50px;
+        }
+     
+    </style>
+</head>
+
+<body>
+    <ul id="list">
+
+
+    </ul>
+    <table border="0">
+        <tr>
+            <td>商品名称</td>
+            <td>单价</td>
+            <td>操作</td>
+        </tr>
+        <ul id="cart-list" class="action">
+
+        </ul>
+    </table>
+
+   
+    <script>
+        let date = [{ id: 1001, imgsrc: "1.jpg", title: "小米移动电源10000Ah", price: "79" }, { id: 1002, imgsrc: "2.jpg", title: "小米充移动电源Ah高配版", price: "149" }, { id: 1003, imgsrc: "3.jpg", title: "小米圈铁耳机", price: "99" }, { id: 1004, imgsrc: "4.jpg", title: "小米活塞耳机基础版", price: "29" }];
+        let str = "";
+        date.forEach(v=>{
+            str+=`
+            <li>
+            <img src="${v.imgsrc}">
+            <p>${v.title}</p>
+            <p>${v.price}</p>
+            <input class = "addbtn" type="button" value="加入购物车" data-id = "${v.id}" >
+        </li>
+            `
+        })
+        let oul = document.querySelector("#list");
+        oul.innerHTML = str;
+
+        // 添加
+       let jsonstr = localStorage.getItem("carts");
+       let cartArr = null;
+       if(jsonstr){
+           cartArr = JSON.parse(jsonstr);
+
+       }else{
+           cartArr = [];
+       }
+       console.log(cartArr);
+       let Btns = document.querySelectorAll(".addbtn");
+       for(let i = 0; i<Btns.length;i++){
+           Btns[i].onclick = function(){
+               console.log(this);
+               let id = this.getAttribute("data-id");
+               let obj = date.find(v=>v.id == id);
+               obj.time = Date.now();
+               let obj2 = JSON.parse(JSON.stringify(obj));
+
+               console.log(obj2);
+
+               cartArr.push(obj2);
+               localStorage.setItem("carts",JSON.stringify(cartArr));
+            gwc();
+           }
+
+       }
+    //   购物车 
+    gwc();
+       function gwc(){
+           let str = "";
+           cartArr.forEach(v=>{
+               str+=`
+               <li>
+            <img src="${v.imgsrc}">
+            <p>${v.title}</p>
+            <p>${v.price + "元"}</p>
+            <input class = "deletbtn" type="button" value="删除" data-id = "${v.id}"  data-time = "${v.time}">
+        </li>
+               `
+           });
+           let aul = document.querySelector(".action");
+           aul.innerHTML = str;
+
+        //    删除
+           let deletbtn = document.querySelectorAll(".deletbtn");
+           for(let j = 0; j<deletbtn.length;j++){
+               deletbtn[j].onclick = function (){
+               let time = this.getAttribute("data-time");
+               cartArr = cartArr.filter(v=>v.time != time);
+               localStorage.setItem("carts",JSON.stringify(cartArr));
+            //    location.reload();
+            // gwc(cartArr);
+            this.parentNode.remove();
+            // location.reload();
+
+           }
+
+       }
+    }
+    </script>
+</body>
+
+</html>
