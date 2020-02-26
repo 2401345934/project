@@ -141,27 +141,48 @@ $(function () {
 
 
 // 初始化一个Swiper实例，给当前的Swiper实例添加配置项
-    var mySwiper = new Swiper('.swiper-container', {
-        initialSlide:0,
-        direction: 'horizontal',
-        loop: true,
-        autoplay: {
-            delay: 1000,
-            stopOnLastSlide: false,
-            disableOnInteraction: false,
-        },
-        // 分页器 也就是一个个的小点
-        pagination: {
-            el: '.swiper-pagination',
-        },
-        centeredSlides : true,
-        // 如果需要前进后退按钮
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+    $.ajax({
+        url: '../json/banner.json',
+        type: 'post',
+        dataType: 'json',
+        success: function (res) {
+            res.forEach((item) => {
+                let box = document.createElement('div');
+                let img = document.createElement('img');
+                img.src = item;
+                box.appendChild(img);
+                box.classList.add('swiper-slide');
+                console.log($(box));
+                $('.swiper-wrapper').append($(box))
+            })
 
+
+            var mySwiper = new Swiper('.swiper-container', {
+                initialSlide: 0,
+                direction: 'horizontal',
+                loop: true,
+                autoplay: {
+                    delay: 1000,
+                    stopOnLastSlide: false,
+                    disableOnInteraction: false,
+                },
+                // 分页器 也就是一个个的小点
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+                centeredSlides: true,
+                // 如果需要前进后退按钮
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+            })
+        }
     })
+
+
+
 
     $('.swiper-container').hover(function () {
         $('.banner-r').animate({
@@ -173,7 +194,7 @@ $(function () {
             width: 33
         })
         $('.swiper-button-prev').show()
-    },function () {
+    }, function () {
         $('.banner-r').animate({
             width: 0
         })
@@ -193,9 +214,10 @@ $(function () {
 
     // paging
 
-        // ppl
+    // ppl
     getPpl()
-    function getPpl(){
+
+    function getPpl() {
         $.ajax({
             url: '../json/ppl.json',
             type: 'post',
@@ -203,9 +225,11 @@ $(function () {
             success: function (res) {
                 res.forEach((item) => {
                     let img = document.createElement('img');
+                    let box = document.createElement('div');
                     img.src = item;
-                    console.log(item);
-                    $('.ppl').append($(img))
+                    box.appendChild(img);
+                    box.className = 'box';
+                    $('.ppl').append($(box))
                 })
             }
         })
@@ -217,8 +241,121 @@ $(function () {
             getPpl()
         }
     })
-        // ppl
+    // ppl
+
+    $('.page-item').click(function () {
+        $(this).addClass('active').siblings().removeClass('active')
+
+        if ($('.page-item-2').hasClass('active')) {
+            $('.paging-b').hide();
+            $('.paging-n').show();
+            $('.ppl').children().remove();
+            fdj();
+        }
+
+        if ($('.page-item-1').hasClass('active')) {
+            $('.paging-b').show();
+            $('.paging-n').hide();
+            $('.ppl').children().remove();
+            getPpl();
+        }
+        if ($('.page-item-3').hasClass('active')) {
+            $('.paging-b').hide();
+            $('.paging-n').hide();
+            $('.ppl').children().remove();
+            $('.paging-q').show();
+        }
+
+        $('.paging-q h2').click(function () {
+            location.href = '../pages/Opinion.html';
+        })
+        
+    })
+
+    //fdj
+
+    function fdj() {
+        $('.bigimg').css({
+            width: $('.small').width() / $('.mask').width() * $('.big').width(),
+            height: $('.small').height() / $('.mask').height() * $('.big').height()
+        })
+
+        $('.small').hover(function () {
+            $('.mask').show()
+            $('.big').show()
+        }, function () {
+            $('.mask').hide()
+            $('.big').hide()
+        })
+
+
+        $('.small').mousemove(function (e) {
+            let x = e.pageX - $('.fdj').offset().left;
+            let y = e.pageY - $('.fdj').offset().top;
+            let maskX = x - $('.mask').width() / 2;
+            let maskY = y - $('.mask').height() / 2;
+            if (maskX >= $('.small').width() - $('.mask').width()){
+                maskX = $('.mask').width();
+            }
+            if (maskX <= 0){
+                maskX = 0;
+            }
+
+            if (maskY <= 0){
+                maskY = 0;
+            }
+
+            if (maskY >=  $('.small').height() - $('.mask').height()) {
+                maskY = $('.mask').height();
+            }
+
+            $('.mask').css({
+                left: maskX,
+                top: maskY
+            })
+
+            $('.bigimg').css({
+                left: -maskX * $('.bigimg').width() / $('.small').width(),
+                top: -maskY * $('.bigimg').height() / $('.small').height()
+            })
+
+        })
+    }
+        
+    //fdj
 
 
     // paging
 })
+
+
+// ppl
+
+// window.onload = function () {
+//
+//     let p = document.querySelector('.ppl');
+//     let boxs = p.querySelectorAll('.box');
+//     let boxsHeight = boxs[0].offsetHeight;
+//     let imgWidth = boxs[0].offsetWidth;
+//     let num = Math.floor(p.offsetWidth / imgWidth)
+//     let heightArray = []
+//
+//     for (let i = 0; i < num; i++) {
+//         heightArray.push(boxs[i] * boxsHeight)
+//     }
+//
+//     for (let i = num; i < boxs.length; i++) {
+//         let box = boxs[i]
+//         let min = Math.min(...heightArray)
+//         let minIndex = heightArray.findIndex(v => v == min)
+//
+//         box.style.position = 'absolute';
+//         box.style.left = minIndex * imgWidth + 'px';
+//         box.style.top = min + 'px';
+//         heightArray[minIndex] = heightArray[minIndex] + box.offsetHeight
+//     }
+// }
+
+// ppl
+
+
