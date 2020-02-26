@@ -187,7 +187,8 @@ i {
 
 .header > ul > li {
     float: left;
-    margin: 0 15px 0 12px;
+    margin-left: 10px;
+    margin-right: 10px;
     height: 30px;
     line-height: 30px;
     color: #666;
@@ -222,7 +223,8 @@ i {
 }
 
 .header ul li i {
-    margin-left: 12px;
+    margin-left: 15px;
+    margin-right: 5px;
 }
 
 /*nav*/
@@ -448,23 +450,47 @@ i {
     z-index: -1;
 }
 
-.nav-c ul {
+.nav-c .nav-c-ul2 {
     margin-left: 4px;
     color: #999999;
 }
 
-.nav-c ul li {
+.nav-c .nav-c-ul2 li {
     float: left;
     cursor: pointer;
 }
 
-.nav-c ul li i {
+.nav-c .nav-c-ul2 li i {
     margin: 0 11px ;
     cursor: default;
 }
 
 .nav-c div span {
     line-height: 32px;
+}
+
+.nav-c .nav-c-ul {
+    position: absolute;
+    width: 390px;
+    height: 250px;
+    z-index: 15;
+    background: #fff;
+    display: none;
+    border: 2px solid #eee;
+    margin-left: 3px;
+}
+
+.nav-c .nav-c-ul li {
+    text-align: left;
+    margin-top: 5px;
+}
+.nav-c .nav-c-ul li a {
+    display: block;
+}
+
+.nav-c .nav-c-ul li a:hover {
+    background: #fa2a83;
+    color: #fff;
 }
 
 .nav-r {
@@ -532,6 +558,8 @@ i {
     text-align: center;
     color: #fff;
     font-size: 16px;
+    cursor: pointer;
+    position: relative;
 }
 
 .suspension .ul3{
@@ -556,7 +584,73 @@ i {
 .ul2 li:nth-child(1){
     color: #f10180;
 }
-/*suspension*/
+
+
+.suspension-ul4 {
+    position: absolute;
+    top: 43px;
+    display: none;
+    z-index: 66;
+}
+
+.suspension-ul4 li {
+    margin-top: -2px;
+}
+
+.suspension-ul4 li > span {
+    display: inline-block;
+    width: 155px;
+    height: 44px;
+    background: #f10180;
+    color: #fff;
+    font-size: 12px;
+}
+
+.suspension-ul4 li > span:hover {
+    background: #fff;
+    color: #f10180;
+}
+
+.suspension-ul4-div {
+    width: 600px;
+    height: 450px;
+    position: absolute;
+    background: #fff;
+    left: 155px;
+    top: 0;
+    overflow: auto;
+    color: #000;
+}
+
+
+.suspension-ul4-div dl {
+    overflow: hidden;
+    cursor: default;
+}
+
+.suspension-ul4-div dl  dt{
+    float: left;
+    margin-left: 30px;
+    margin-right: 50px;
+    font-size: 14px;
+}
+
+.suspension-ul4-div dl dd {
+    float: left;
+    width: 400px;
+    text-align: left;
+}
+
+.suspension-ul4-div dl dd a{
+    font-size: 10px;
+    margin: 0  2px;
+    cursor: pointer;
+}
+.suspension-ul4-div dl dd a:hover {
+    color: #f10180;
+}
+
+    /*suspension*/
 
 /*main*/
 

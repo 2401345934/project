@@ -84,6 +84,7 @@ $(function () {
 
     // header
 
+
     // nav
 
     $.ajax({
@@ -97,11 +98,32 @@ $(function () {
                 let i = document.createElement('i');
                 i.innerText = '|';
                 li.appendChild(i);
-                $('.nav-c ul').append($(li))
+                $('.nav-c .nav-c-ul2').append($(li))
             })
-            $('.nav-c ul li i').last().remove()
+            $('.nav-c .nav-c-ul2 li i').last().remove()
         }
     })
+
+
+    //search
+
+
+    $('.nav-input').on('input', function () {
+        let body = document.querySelector('body');
+        let scriptt = document.createElement('script');
+        scriptt.src = `https://category.vip.com/ajax/getSuggest.php?callback=searchSuggestions&keyword=${$(this).val()}&_=1582706218572`;
+        body.appendChild(scriptt);
+        scriptt.remove()
+
+        if ($(this).val() === ''){
+            $('.nav-c-ul').hide()
+        }
+
+    })
+
+
+
+
 
     $('.nav-r').click(function () {
         location.href = '../pages/Shopping.html';
@@ -129,12 +151,125 @@ $(function () {
     })
 
     $(window).scroll(function () {
-        if ($(window).scrollTop() >= 200) {
-            $('.suspension-wrap').slideDown(222)
+        if ($(window).scrollTop() >= 550) {
+            $('.suspension-wrap').stop().slideDown(222)
         } else {
-            $('.suspension-wrap').slideUp(222)
+            $('.suspension-wrap').stop().slideUp(222)
         }
     })
+
+
+    $('.suspension .ul1').hover(function () {
+        $('.suspension-ul4').stop().slideDown()
+    }, function () {
+        $('.suspension-ul4').stop().slideUp()
+    })
+
+
+    $('.suspension-ul4 ').on('mouseenter', 'li', function () {
+        if ($(this).index() === 0) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory30074&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=30074&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582720897744`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 1) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory324442&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=324442&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582726169568`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 2) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory30071&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=30071&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582726304547`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 3) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory30066&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=30066&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582726360490`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 4) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory30068&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=30068&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582726543894`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 5) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory30070&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=30070&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582726961116`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+
+        if ($(this).index() === 6) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory29751&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=29751&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582727161800`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 7) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory30069&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=30069&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582727161801`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 8) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory71958&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=71958&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582727161802`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 9) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory44285&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=44285&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582727161803`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+        if ($(this).index() === 10) {
+            let scriptt = document.createElement('script');
+            scriptt.src = `https://mapi.vip.com/vips-mobile/rest/shopping/pc/category/index/get_tab_data/v1?callback=getSubCategory331849&app_name=shop_pc&app_version=4.0&warehouse=VIP_HZ&fdc_area_id=104101102&client=pc&mobile_platform=1&province_id=104101&api_key=70f71280d5d547b2a7bb370a529aeea1&user_id=&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&wap_consumer=a&hierarchyId=117&categoryId=331849&clientFrom=PC&net=wifi&width=1366&height=768&pcmpWidth=750&mobile_channel=nature&functions=jumper&_=1582727364566`;
+            $('body').append($(scriptt));
+            scriptt.remove()
+        } else {
+            $('.suspension-ul4-div').children().remove()
+        }
+
+    })
+
+
     /*suspension*/
 
     // banner
@@ -152,7 +287,6 @@ $(function () {
                 img.src = item;
                 box.appendChild(img);
                 box.classList.add('swiper-slide');
-                console.log($(box));
                 $('.swiper-wrapper').append($(box))
             })
 
@@ -182,31 +316,27 @@ $(function () {
     })
 
 
-
-
     $('.swiper-container').hover(function () {
-        $('.banner-r').animate({
+        $('.banner-r').stop().animate({
             width: 33
         })
-        $('.swiper-button-next').show()
+        $('.swiper-button-next').stop().show()
 
         $('.banner-l').animate({
             width: 33
         })
         $('.swiper-button-prev').show()
     }, function () {
-        $('.banner-r').animate({
+        $('.banner-r').stop().animate({
             width: 0
         })
         $('.swiper-button-next').hide()
 
-        $('.banner-l').animate({
+        $('.banner-l').stop().animate({
             width: 0
         })
         $('.swiper-button-prev').hide()
     })
-
-
 
 
     // banner
@@ -269,7 +399,7 @@ $(function () {
         $('.paging-q h2').click(function () {
             location.href = '../pages/Opinion.html';
         })
-        
+
     })
 
     //fdj
@@ -294,18 +424,18 @@ $(function () {
             let y = e.pageY - $('.fdj').offset().top;
             let maskX = x - $('.mask').width() / 2;
             let maskY = y - $('.mask').height() / 2;
-            if (maskX >= $('.small').width() - $('.mask').width()){
+            if (maskX >= $('.small').width() - $('.mask').width()) {
                 maskX = $('.mask').width();
             }
-            if (maskX <= 0){
+            if (maskX <= 0) {
                 maskX = 0;
             }
 
-            if (maskY <= 0){
+            if (maskY <= 0) {
                 maskY = 0;
             }
 
-            if (maskY >=  $('.small').height() - $('.mask').height()) {
+            if (maskY >= $('.small').height() - $('.mask').height()) {
                 maskY = $('.mask').height();
             }
 
@@ -321,7 +451,7 @@ $(function () {
 
         })
     }
-        
+
     //fdj
 
 
@@ -359,3 +489,301 @@ $(function () {
 // ppl
 
 
+// search
+
+function searchSuggestions(data) {
+    $('.nav-c-ul').children().remove()
+    data.data.forEach((item) => {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        a.innerText = item.word;
+        a.href = `${item.url}`;
+        li.appendChild(a);
+
+        $('.nav-c-ul').append($(li))
+        $('.nav-c-ul').show();
+    })
+}
+
+// search
+
+// suspension-wrap
+
+function getSubCategory30074(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+function getSubCategory324442(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+function getSubCategory30071(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+
+function getSubCategory30066(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+function getSubCategory30068(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+function getSubCategory30070(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+function getSubCategory29751(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+
+function getSubCategory30069(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+function getSubCategory71958(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+function getSubCategory44285(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+function getSubCategory331849(data) {
+    $('.suspension-ul4-div').children().remove()
+    for (let i = 1; i < data.data.data.sectionList.length; i++) {
+        let res = data.data.data.sectionList[i];
+        console.log(res.category.children);
+        let dl = document.createElement('dl');
+        let dt = document.createElement('dt');
+        let dd = document.createElement('dd');
+        let span = document.createElement('span');
+
+        res.category.children.forEach((item) => {
+            let a = document.createElement('a');
+            a.innerText = item.name;
+            dd.appendChild(a);
+            a.href = 'javascript:;'
+        })
+        span.innerText = res.category.name
+        dt.appendChild(span);
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+        $('.suspension-ul4-div').append($(dl));
+
+    }
+}
+
+// suspension-wrap
