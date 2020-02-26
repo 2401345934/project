@@ -89,6 +89,8 @@ i {
     border: 1px solid #ccc;
     display: none;
     background: #fff;
+    position: relative;
+    z-index: 50;
 }
 
 .header-div div .top {
