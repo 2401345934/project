@@ -79,9 +79,11 @@ i {
     height: 30px;
     line-height: 30px;
     width: 86px;
-    margin-left: 13px;
+    text-align: center;
     position: relative;
 }
+
+
 
 .header-div .header-div-div {
     width: 500px;
@@ -127,29 +129,46 @@ i {
     background: #f8f8f8;
 }
 
-.header-div div .bottom .btn2 {
+.header-div div .bottom .btn1 {
     border-top: 2px solid #f10180;
     background: #fff;
     float: left;
+}
+
+.header-div div .bottom .btn2 {
+    position: relative;
+    left: -167px;
 }
 
 .header-div div .bottom .bottom-r {
     width: 500px;
     margin-top: 5px;
     margin-left: 20px;
-    /*display: none;*/
+    display: none;
 }
 
 .header-div div .bottom .bottom-l {
     width: 500px;
     margin-top: 5px;
     margin-left: 20px;
-    display: none;
+    /*display: none;*/
 }
 
-.header-div div .bottom .bottom-r ul, .header-div div .bottom .bottom-l ul {
+.header-div div .bottom .bottom-r ul , .header-div div .bottom .bottom-l ul{
+    overflow: hidden;
+    margin-top: -6px;
+}
+
+
+ .header-div div .bottom .bottom-l ul li{
     float: left !important;
     margin-right: 25px;
+}
+
+.header-div div .bottom .bottom-r ul li  {
+    float: left !important;
+    margin-right: 35px;
+    margin-top: 10px;
 }
 
 .header-div div .bottom .bottom-r ul li, .header-div div .bottom .bottom-l ul {
@@ -163,6 +182,9 @@ i {
     text-align: center;
     line-height: 20px;
     border: 1px solid transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .header-div div .bottom .bottom-r ul li a:hover, .header-div div .bottom .bottom-l ul a:hover {
@@ -173,7 +195,7 @@ i {
     display: inline-block;
     position: absolute;
     top: 10px;
-    right: 25px;
+    right: 7px;
     width: 0;
     height: 0;
     border: 5px solid;

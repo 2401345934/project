@@ -47,23 +47,37 @@ $(function () {
 // header
     $('.header-div').on('click', function (event) {
         $('.header-div-div').slideDown(500);
+        $(this).css({background:'#fff'})
         event.stopPropagation();
+
+        let scriptt = document.createElement('script');
+        scriptt.src = 'https://gensvr-n.vip.com/address/address?callback=getAddress1582784398338&areaid=0&newIsBind=0';
+        $('body').append($(scriptt))
+        $(scriptt).remove()
     });
 
     //点击小按钮让盒子隐藏
     $('.header-div .top p').on('click', function (event) {
-        $('.header-div-div').css({'display': 'none'});
+        $('.header-div-div').hide();
+        $('.header-div').css({background:'#f5f5f5'})
         event.stopPropagation();
     });
+
+
 
 
     // 省份点击按钮
     $('.header-div-div .bottom .btn1').on('click', function (event) {
         $(this).css({'border-top': '2px solid #f10180', 'background': '#fff'});
         $('.header-div-div .bottom .btn2').css({'border-top': 'none', 'background': '#f8f8f8'});
-        $('.header-div div .bottom .bottom-l').css({'display': 'block'});
-        $('.header-div div .bottom .bottom-r').css({'display': 'none'});
+        $('.header-div div .bottom .bottom-l').show();
+        $('.header-div div .bottom .bottom-r').hide();
         event.stopPropagation();
+
+        let scriptt = document.createElement('script');
+        scriptt.src = 'https://gensvr-n.vip.com/address/address?callback=getAddress1582784398338&areaid=0&newIsBind=0';
+        $('body').append($(scriptt))
+        $(scriptt).remove()
     });
 
 
@@ -71,14 +85,20 @@ $(function () {
     $('.header-div-div .bottom .btn2').on('click', function (event) {
         $(this).css({'border-top': '2px solid #f10180', 'background': '#fff'});
         $('.header-div-div .bottom .btn1').css({'border-top': 'none', 'background': '#f8f8f8'});
-        $('.header-div div .bottom .bottom-r').css({'display': 'block'});
-        $('.header-div div .bottom .bottom-l').css({'display': 'none'});
+        $('.header-div div .bottom .bottom-r').show();
+        $('.header-div div .bottom .bottom-l').hide();
         event.stopPropagation();
+
+        let scriptt = document.createElement('script');
+        scriptt.src = 'https://gensvr-n.vip.com/address/address?callback=getAddress1582784284869&areaid=104101&newIsBind=0';
+        $('body').append($(scriptt))
+        $(scriptt).remove()
     });
 
 
     $(document).on('click', function (event) {
-        $('.header-div-div').css({'display': 'none'});
+        $('.header-div-div').hide();
+        $('.header-div').css({background:'#f5f5f5'})
     });
 
 
@@ -128,6 +148,9 @@ $(function () {
     $('.nav-r').click(function () {
         location.href = '../pages/Shopping.html';
     })
+
+
+
 
     // nav
 
@@ -806,3 +829,47 @@ function getSubCategory331849(data) {
 }
 
 // suspension-wrap
+
+window.onload = function () {
+    let jsonStr = JSON.parse(localStorage.getItem('carts'));
+    let tmpArr  = null;
+    if (jsonStr){
+        tmpArr = jsonStr;
+        let sum = 0;
+        tmpArr.forEach((item) => {
+            sum += item.num;
+        })
+    $('.nav-r-num').text(sum);
+    }
+
+}
+
+
+
+// 省
+function getAddress1582784398338(data) {
+    $('.bottom-l ul').children().remove()
+    data.list.forEach((item) => {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        a.href = 'javascript:;';
+        a.innerText = item.name;
+        li.appendChild(a);
+        $('.bottom-l ul').append(li)
+    })
+    $('.bottom-l ul li').first().remove()
+}
+
+// 城市
+function getAddress1582784284869(data) {
+    $('.bottom-r ul').children().remove()
+    data.list.forEach((item) => {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        a.href = 'javascript:;';
+        a.innerText = item.name;
+        li.appendChild(a);
+        $('.bottom-r ul').append(li)
+    })
+    $('.bottom-r ul li').first().remove()
+}
