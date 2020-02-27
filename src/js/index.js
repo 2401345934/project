@@ -438,7 +438,7 @@ $(function () {
             $('.paging-q').show();
         }
 
-        $('.paging-q h2').click(function () {
+        $('.paging-q .btn-dark').click(function () {
             location.href = '../pages/Opinion.html';
         })
 

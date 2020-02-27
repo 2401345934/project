@@ -780,7 +780,7 @@ i {
     width: 974px;
     height: 340px;
     position: relative;
-    left: 39px;
+    left: 44px;
     top: 43px;
 }
 .swiper-slide img {
@@ -952,9 +952,119 @@ i {
     display: none ;
 }
 
-.paging-q h2 {
-    margin-top: 20px;
-    cursor: pointer;
-    color: red;
+.paging-q .btn-dark {
+    overflow: hidden;
+}
+
+.paging-q .paging-q-t {
+    width: 100%;
+    position: relative;
+}
+
+.paging-q-t .paging-q-t-l ,.paging-q-t .paging-q-t-r{
+    width: 510px;
+    height: 290px;
+    overflow: hidden;
+    position: absolute;
+    float: left;
+}
+
+.paging-q-t .paging-q-t-r {
+    float: right;
+    left: 490px;
+}
+
+.paging-q-t .paging-q-t-l img , .paging-q-t .paging-q-t-r img{
+    width: 100%;
+    height: 100%;
+}
+.paging-q-t .paging-q-t-l .img1111 {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    width: 146px;
+    height: 186px;
+}
+
+.paging-q-t .paging-q-t-l .img2222 {
+    position: absolute;
+    top: 60px;
+    left: 170px;
+    width: 146px;
+    height: 186px;
+}
+
+.paging-q-t .paging-q-t-l .img3333 {
+    position: absolute;
+    top: 60px;
+    left: 336px;
+    width: 146px;
+    height: 186px;
+}
+
+.paging-q-t .paging-q-t-r .img1111 {
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    width: 146px;
+    height: 186px;
+}
+
+.paging-q-t .paging-q-t-r .img2222 {
+    position: absolute;
+    top: 60px;
+    left: 170px;
+    width: 146px;
+    height: 186px;
+}
+
+.paging-q-t .paging-q-t-r .img3333 {
+    position: absolute;
+    top: 60px;
+    left: 336px;
+    width: 146px;
+    height: 186px;
+}
+
+.paging-q-b {
+    height: 298px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 300px;
+}
+
+.paging-q-b .img11 {
+    width: 100%;
+    height: 100%;
+}
+
+.paging-q-b .img22 ,.paging-q-b .img33 ,.paging-q-b .img44 ,.paging-q-b .img55,.paging-q-b .img66,.paging-q-b .img77{
+    position: absolute;
+    width: 145px;
+    height: 196px;
+    left: 0;
+    top: 90px;
+    margin-left: 20px;
+}
+
+.paging-q-b .img33 {
+    margin-left: 182px;
+}
+
+.paging-q-b .img44 {
+    margin-left: 346px;
+}
+
+.paging-q-b .img55 {
+    margin-left: 511px;
+}
+
+
+.paging-q-b .img66 {
+    margin-left: 677px;
+}
+
+.paging-q-b .img77 {
+    margin-left: 834px;
 }
 /*paging*/
