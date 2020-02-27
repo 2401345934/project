@@ -304,10 +304,10 @@ i {
 
 .sidebar-q div ,.sidebar-w div,.sidebar-e div,.sidebar-r div,.sidebar-y div ,.sidebar-u div {
     position: fixed;
-    background: red;
+    background: #fff;
     width: 0px;
     height: 36px;
-    color: #fff;
+    color: #000;
     right: 36px;
     text-align: center;
     line-height: 36px;
@@ -581,8 +581,13 @@ i {
     margin: 0 13px;
     cursor: pointer;
 }
+.ul2 li:hover {
+    color: #f10180;
+}
+
 .ul2 li:nth-child(1){
     color: #f10180;
+    font-weight: 700;
 }
 
 
@@ -649,6 +654,44 @@ i {
 .suspension-ul4-div dl dd a:hover {
     color: #f10180;
 }
+
+.ul3 {
+    position: relative;
+    width: 86px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ul3:hover {
+    color: #f10180;
+}
+
+
+
+.ul3-ul {
+    position: absolute;
+    z-index: 55;
+    left: 0;
+    top: 43px;
+    display: none;
+}
+
+.ul3-ul li {
+    width: 86px;
+    height: 45px;
+    background: #fff;
+    color: #000;
+    text-align: center;
+
+}
+
+.ul3-ul li:hover {
+    color: #f10180;
+    cursor: pointer;
+}
+
+
+
 
     /*suspension*/
 

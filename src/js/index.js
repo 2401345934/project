@@ -270,6 +270,25 @@ $(function () {
     })
 
 
+    $.ajax({
+        data: 'json',
+        url: '../json/suspension2.json',
+        type: 'get',
+        success: function (res) {
+            res.forEach((item) => {
+                let li = document.createElement('li');
+                li.innerText = item;
+                $('.ul3-ul').append($(li));
+            })
+        }
+    })
+
+    $('.ul3').hover(function () {
+        $('.ul3-ul').show();
+    },function () {
+        $('.ul3-ul').hide();
+    })
+
     /*suspension*/
 
     // banner
