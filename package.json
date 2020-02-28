@@ -33,5 +33,6 @@
     "gulp-htmlmin": "^5.0.1",
     "gulp-uglify": "^3.0.2",
     "gulp-webserver": "^0.9.1"
-  }
+  },
+  "browserslist" : ["Last 2  version" , "Android >= 4.0"]
 }

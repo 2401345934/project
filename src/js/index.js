@@ -837,7 +837,7 @@ window.onload = function () {
         tmpArr = jsonStr;
         let sum = 0;
         tmpArr.forEach((item) => {
-            sum += item.num;
+            sum += parseInt(item.num);
         })
     $('.nav-r-num').text(sum);
     }
