@@ -47,7 +47,7 @@ $(function () {
 // header
     $('.header-div').on('click', function (event) {
         $('.header-div-div').slideDown(500);
-        $(this).css({background:'#fff'})
+        $(this).css({background: '#fff'})
         event.stopPropagation();
 
         let scriptt = document.createElement('script');
@@ -59,11 +59,9 @@ $(function () {
     //点击小按钮让盒子隐藏
     $('.header-div .top p').on('click', function (event) {
         $('.header-div-div').hide();
-        $('.header-div').css({background:'#f5f5f5'})
+        $('.header-div').css({background: '#f5f5f5'})
         event.stopPropagation();
     });
-
-
 
 
     // 省份点击按钮
@@ -98,7 +96,7 @@ $(function () {
 
     $(document).on('click', function (event) {
         $('.header-div-div').hide();
-        $('.header-div').css({background:'#f5f5f5'})
+        $('.header-div').css({background: '#f5f5f5'})
     });
 
 
@@ -135,21 +133,16 @@ $(function () {
         body.appendChild(scriptt);
         scriptt.remove()
 
-        if ($(this).val() === ''){
+        if ($(this).val() === '') {
             $('.nav-c-ul').hide()
         }
 
     })
 
 
-
-
-
     $('.nav-r').click(function () {
         location.href = '../pages/Shopping.html';
     })
-
-
 
 
     // nav
@@ -308,7 +301,7 @@ $(function () {
 
     $('.ul3').hover(function () {
         $('.ul3-ul').show();
-    },function () {
+    }, function () {
         $('.ul3-ul').hide();
     })
 
@@ -410,8 +403,15 @@ $(function () {
 
     $(window).scroll(function () {
         if ($(this).scrollTop() >= $('.ppl').height()) {
-            getPpl()
+            if ($('.ppl').children().length >= 26) {
+
+            } else {
+                getPpl()
+
+            }
         }
+
+
     })
     // ppl
 
@@ -420,14 +420,20 @@ $(function () {
 
         if ($('.page-item-2').hasClass('active')) {
             $('.paging-b').hide();
-            $('.paging-n').show();
+            $('.paging-q').hide();
+            $('.list').show()
             $('.ppl').children().remove();
-            fdj();
+
+            let scriptt = document.createElement('script');
+            scriptt.src = ' https://h5.vip.com/dp/getDataPC?callback=jQuery1102047673596901053505_1582887585969&pageId=100015406&componentId=338728&pageSize=28&abtId=&warehouse=VIP_HZ&fdc_area_id=&area_id=104101102&app_name=shop_pc&app_version=1.0&api_key=70f71280d5d547b2a7bb370a529aeea1&mars_cid=1582679461768_c83426af4720746ec61272e0ecc11d9c&serviceType=1&total=&goodsQueryFields=goodsSellTag%2CgoodsStockTag%2Cquery4GoodsFav%2Cquery4Comment%2CgoodsCorner%2CgoodsFallingTag&topSalesList=&is_front=1&dataSourceScene=MST_PRODUCT_RANK&_=1582887585972';
+            $('body').append($(scriptt));
+            $(scriptt).remove()
         }
 
         if ($('.page-item-1').hasClass('active')) {
             $('.paging-b').show();
-            $('.paging-n').hide();
+            $('.paging-q').hide();
+            $('.list').hide()
             $('.ppl').children().remove();
             getPpl();
         }
@@ -436,6 +442,7 @@ $(function () {
             $('.paging-n').hide();
             $('.ppl').children().remove();
             $('.paging-q').show();
+            $('.list').hide()
         }
 
         $('.paging-q .btn-dark').click(function () {
@@ -443,58 +450,6 @@ $(function () {
         })
 
     })
-
-    //fdj
-
-    function fdj() {
-        $('.bigimg').css({
-            width: $('.small').width() / $('.mask').width() * $('.big').width(),
-            height: $('.small').height() / $('.mask').height() * $('.big').height()
-        })
-
-        $('.small').hover(function () {
-            $('.mask').show()
-            $('.big').show()
-        }, function () {
-            $('.mask').hide()
-            $('.big').hide()
-        })
-
-
-        $('.small').mousemove(function (e) {
-            let x = e.pageX - $('.fdj').offset().left;
-            let y = e.pageY - $('.fdj').offset().top;
-            let maskX = x - $('.mask').width() / 2;
-            let maskY = y - $('.mask').height() / 2;
-            if (maskX >= $('.small').width() - $('.mask').width()) {
-                maskX = $('.mask').width();
-            }
-            if (maskX <= 0) {
-                maskX = 0;
-            }
-
-            if (maskY <= 0) {
-                maskY = 0;
-            }
-
-            if (maskY >= $('.small').height() - $('.mask').height()) {
-                maskY = $('.mask').height();
-            }
-
-            $('.mask').css({
-                left: maskX,
-                top: maskY
-            })
-
-            $('.bigimg').css({
-                left: -maskX * $('.bigimg').width() / $('.small').width(),
-                top: -maskY * $('.bigimg').height() / $('.small').height()
-            })
-
-        })
-    }
-
-    //fdj
 
 
     // paging
@@ -832,18 +787,17 @@ function getSubCategory331849(data) {
 
 window.onload = function () {
     let jsonStr = JSON.parse(localStorage.getItem('carts'));
-    let tmpArr  = null;
-    if (jsonStr){
+    let tmpArr = null;
+    if (jsonStr) {
         tmpArr = jsonStr;
         let sum = 0;
         tmpArr.forEach((item) => {
             sum += parseInt(item.num);
         })
-    $('.nav-r-num').text(sum);
+        $('.nav-r-num').text(sum);
     }
 
 }
-
 
 
 // 省
@@ -872,4 +826,29 @@ function getAddress1582784284869(data) {
         $('.bottom-r ul').append(li)
     })
     $('.bottom-r ul li').first().remove()
+}
+
+// 详情页面
+function jQuery1102047673596901053505_1582887585969(data) {
+    let list = document.querySelector('.list');
+    let h = '';
+    data.data.items.forEach((item) => {
+        h += `
+         <div class="list-item">
+                <img src="${item.goodsImageTags.image5.image}" alt="...">
+                <div class="price"><span>快抢价</span><span class="span3">${item.goodsPriceTag.marketPrice}</span></div>
+                <p>${item.goodsName}</p>
+                <button type="button" class="btn btn-info" >点击查看详情</button>
+            </div>
+        `;
+
+    })
+    list.innerHTML = h;
+
+    $('.list-item button').click(function () {
+        localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+        localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+        localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+        location.href = '../pages/Details.html';
+    })
 }

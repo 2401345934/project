@@ -1,0 +1,88 @@
+
+.paging-n {
+    margin-top: 50px;
+    overflow: hidden;
+
+}
+
+
+
+
+.fdj {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    top:10px;
+    float: left;
+    cursor: pointer;
+    z-index: 99;
+}
+
+.small {
+    background: red;
+    width: 300px;
+    height: 300px;
+}
+
+.small img {
+    width: 300px;
+    height: 300px;
+
+}
+
+.big {
+    position: absolute;
+    height: 418px;
+    width: 418px;
+    left: 330px;
+    top: -35px;
+    overflow: hidden;
+    display: none;
+    z-index: 2;
+
+}
+
+.bigimg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 600px;
+    height: 600px;
+}
+
+.mask {
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 0, 0.3);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    display: none;
+}
+
+.paging-n h4 {
+    color: deepskyblue;
+    position: relative;
+    top: 20px;
+}
+
+.paging-n h3 {
+    color: red;
+    font-weight: 700;
+    margin-top: 80px;
+    position: relative;
+    left: 80px;
+}
+
+.paging-n  button {
+    position: relative;
+    top:260px;
+    left: 100px;
+}
+
+.paging-n .btn1 {
+    margin-right: 50px;
+}
+.paging-n .btn3 {
+    margin-left: 30px;
+}

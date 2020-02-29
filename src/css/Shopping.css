@@ -3,51 +3,232 @@
     padding: 0;
 }
 
-img {
+.bx {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/*header*/
+.header-wrap {
+    border-top: 1px solid #dadce0;
+    background: #f5f5f5;
+    height: 30px;
+}
+
+.header {
+    height: 30px;
+}
+
+.header > div {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 86px;
+    text-align: center;
+    position: relative;
+}
+
+
+
+.header-div .header-div-div {
+    width: 500px;
+    height: 255px;
+    border: 1px solid #ccc;
+    display: none;
+    background: #fff;
+    position: relative;
+    z-index: 50;
+}
+
+.header-div div .top {
+    height: 41px;
+    width: 500px;
+}
+
+.header-div div .top h4 {
+    float: left;
+    padding-left: 15px;
+}
+
+.header-div div .top p {
+    float: right;
+    padding-right: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header-div div .bottom {
+    width: 500px;
+}
+
+.header-div div .bottom p {
+    width: 68px;
+    height: 28px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    position: relative;
+    left: 15px;
+    cursor: pointer;
+    text-align: center;
+    background: #f8f8f8;
+}
+
+.header-div div .bottom .btn1 {
+    border-top: 2px solid #f10180;
+    background: #fff;
+    float: left;
+}
+
+.header-div div .bottom .btn2 {
+    position: relative;
+    left: -167px;
+}
+
+.header-div div .bottom .bottom-r {
+    width: 500px;
+    margin-top: 5px;
+    margin-left: 20px;
+    display: none;
+}
+
+.header-div div .bottom .bottom-l {
+    width: 500px;
+    margin-top: 5px;
+    margin-left: 20px;
+    /*display: none;*/
+}
+
+.header-div div .bottom .bottom-r ul , .header-div div .bottom .bottom-l ul{
+    overflow: hidden;
+    margin-top: -6px;
+}
+
+
+.header-div div .bottom .bottom-l ul li{
+    float: left !important;
+    margin-right: 25px;
+}
+
+.header-div div .bottom .bottom-r ul li  {
+    float: left !important;
+    margin-right: 35px;
+    margin-top: 10px;
+}
+
+.header-div div .bottom .bottom-r ul li, .header-div div .bottom .bottom-l ul {
+    float: none;
+}
+
+.header-div div .bottom .bottom-r ul li a, .header-div div .bottom .bottom-l ul a {
+    display: inline-block;
+    width: 56px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border: 1px solid transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.header-div div .bottom .bottom-r ul li a:hover, .header-div div .bottom .bottom-l ul a:hover {
+    border: 1px solid #f10180;
+}
+
+.header div i {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 7px;
+    width: 0;
+    height: 0;
+    border: 5px solid;
+    border-color: #ccc transparent transparent transparent;
+}
+
+.header > ul {
+    float: right;
+    text-align: center;
+}
+
+.header > ul > li {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    font-size: 12px;
+}
+
+.header > ul > li .span1 {
+    position: relative;
+    left: -8px;
+}
+
+.header > ul > li .span2 {
+    position: relative;
+    left: -8px;
+}
+
+.header > ul > li .dl {
+    width: 73px;
+    display: inline-block;
+}
+
+.header > ul > li .dl:hover {
+    background: #fff;
+}
+
+.header > ul > li .dl:hover i {
+    display: none;
+}
+
+.header > ul > li a:hover {
+    color: #f10983;
+}
+
+.header ul li i {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+
+
+
+#box img {
     width: 200px;
     height: 200px;
+    margin-left: 57px;
 }
 
-ul {
-    list-style: none;
-    overflow: hidden;
-}
 
-li {
-    float: left;
-    text-align: center;
-    width: 300px;
-    height: 300px;
-    margin: 10px;
-    color: orangered;
-    border: 3px solid #00CCFF;
-}
 
-ul li button {
-    width: 300px;
-    height: 60px;
-    background: seagreen;
-    color: #fff;
-    font-size: 30px;
-    text-align: center;
-    font-weight: bold;
-    cursor: pointer;
-}
+
 
 #box {
     background: #eee;
     height: 80px;
+    font-size: 16px;
+}
+
+#box table tr td button {
+    height: 80px;
+    line-height: 80px;
+    width: 200px;
+    text-align: center;
 
 }
 
-td {
+.wrap td ,#box td{
     width: 200px;
     text-align: center;
     height: 80px;
     line-height: 80px;
 }
 
-span {
+.wrap span ,#box span{
     display: inline-block;
     position: relative;
     left: 10px;
@@ -57,10 +238,11 @@ span {
 
 #price {
     font-size: 30px;
+    position: relative;
+    margin-bottom: 80px;
 }
 
 #price input {
-    margin-left: 30px;
     display: inline-block;
     width: 50px;
     height: 50px;
@@ -68,4 +250,45 @@ span {
 
 .wrap {
     position: absolute;
+}
+
+#price .p1 {
+    width: 100px;
+    height: 100px;
+    margin-left: 20px;
+    position: absolute;
+    left: 386px;
+    top: 43px;
+}
+#price .p1 input {
+    height: 50px;
+    width: 250px;
+}
+
+#price .p2 {
+    margin-left: 286px;
+}
+
+#price .p3 {
+    position: relative;
+    left: 600px;
+    top: 78px;
+}
+#price .p3 a {
+    text-align: center;
+}
+
+footer {
+    height: 300px;
+    background: red;
+    display: none;
+    position: relative;
+}
+
+footer p {
+    font-weight: 700;
+    font-size: 60px;
+    position: absolute;
+    top: 128px;
+    left: 13px;
 }

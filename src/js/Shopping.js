@@ -1,51 +1,9 @@
-let proArr = [
-    {
-        pname: '小米',
-        p: '小米史上最贵手机',
-        price: 1111,
-        id: 0,
-        img: '../img/xm.jpg'
-    },
 
-    {
-        pname: '苹果',
-        p: '苹果史上最贵手机',
-        price: 2222,
-        id: 1,
-        img: '../img/pg.jpg'
-    },
-    {
-        pname: '华为',
-        p: '华为史上最贵手机',
-        price: 3333,
-        id: 2,
-        img: '../img/hw.jpg'
-    },
-    {
-        pname: '三星',
-        p: '三星史上最贵手机',
-        price: 4444,
-        id: 3,
-        img: '../img/sx.jpg'
-    },
-]
 
-let html = ''  ;//设一个空字符串 一会用来拼接
 let box = document.querySelector("#box")
 let ul = document.querySelector("ul")
 
-proArr.forEach((v) => {
-    html += `
-            <li>
-            <img src="${v.img}" alt="">
-            <p>${v.p}</p>
-            <p>${v.price}</p>
-            <button data-id="${v.id}" class="addC">加入购物车</button>
-</li>
-        `
-})
-
-ul.innerHTML = html            //需循环添加到 ul当中  样式是提前写好的
+console.log($('#box').children('table'));
 
 let jsonStr = localStorage.getItem('carts');
 let arr = null;
@@ -95,14 +53,14 @@ function upData() {
               <table>
             <tr style="margin-top: 60px; display: inline-block" >
                 <td><input type="checkbox" class="checked"></td>
-                <td colspan="2"><img src="${v.img}" alt="" style="width: 80px;height: 80px;margin-top: 60px;"> <span>${v.p}</span></td>
-                <td style="color: orangered ">${v.price}</td>
-                <td><input type="text" value="${v.num}" class="inpChnage" data-id="${v.id}"></td>
-                <td class="tda">${v.num * v.price }</td>
+                <td colspan="2"><img src="${v.img}" alt="" style="width: 100px;height: 80px;margin-top: 60px;"><span>${v.nameStr}</span></td>
+                <td style="color: orangered ">${v.priceStr}</td>
+                <td><input type="text" value="${v.num}" class="inpChnage" data-id="${v.priceStr}"></td>
+                <td class="tda">${v.num * v.priceStr }</td>
                 <td >
-                <button class="removeB" style="width: 200px;height: 50px;" data-id="${v.id}">删除</button>
-                <button class="jianB" style="width: 200px;height: 50px;" data-id="${v.id}">减</button>
-                <button class="jiaB" style="width: 200px;height: 50px;" data-id="${v.id}">加</button>
+                <button class="removeB"  data-id="${v.priceStr}">删除</button>
+                <button class="jianB"  data-id="${v.priceStr}">减</button>
+                <button class="jiaB"  data-id="${v.priceStr}">加</button>
 
                 </td>
             </tr>
@@ -121,8 +79,9 @@ box.innerHTML = h
         removeB[i].onclick = function () {
             this.parentNode.parentNode.remove()  //删除DOM 元素
             let pid = this.getAttribute('data-id');
-            arr = arr.filter(v => v.id != pid);
+            arr = arr.filter(v => v.priceStr != pid);
             localStorage.setItem('carts', JSON.stringify(arr))
+
         }
     }
 
@@ -132,7 +91,7 @@ box.innerHTML = h
     for (let i = 0; i < inpChan.length; i++) {
         inpChan[i].onchange = function () {
             let pid = this.getAttribute('data-id')
-            let obj = arr.find(v => v.id == pid);
+            let obj = arr.find(v => v.priceStr == pid);
             if (this.value <= 1) {
                 obj.num = 1;
                 this.value = 1;
@@ -150,7 +109,7 @@ box.innerHTML = h
     for (let i = 0; i < jiaB.length; i++) {
         jiaB[i].onclick = function () {
             let pid = this.getAttribute('data-id')
-            let obj = arr.find(v => v.id == pid);
+            let obj = arr.find(v => v.priceStr == pid);
             obj.num++;
             localStorage.setItem('carts', JSON.stringify(arr));
             upData()
@@ -164,7 +123,7 @@ box.innerHTML = h
     for (let i = 0; i < jianB.length; i++) {
         jianB[i].onclick = function () {
             let pid = this.getAttribute('data-id')
-            let obj = arr.find(v => v.id == pid);
+            let obj = arr.find(v => v.priceStr == pid);
             if (obj.num <= 1) {
                 obj.num = 1
             } else {
@@ -175,42 +134,128 @@ box.innerHTML = h
         }
     }
 
-
-
     // 总价 price
 
     let checkB = document.querySelectorAll('.checked');
     let p = document.querySelectorAll('#price p')[0];
-    let tda = document.querySelectorAll('.tda');
+    let pinput  = document.querySelector('.pinput');
 
 
 
 //全选
     let c = document.querySelector('#checkbox');
+    let tda = document.querySelectorAll('.tda');
     c.onclick =function () {
         if (c.checked){
             for (let i = 0; i < checkB.length; i++) {
                 checkB[i].checked = true;
-                console.log(checkB[i].checkd);
             }
+            let sum = 0;
+            tda.forEach((item) => {
+                sum += parseInt(item.innerHTML);
+                console.log(item.innerHTML);
+            })
+            pinput.value = sum;
+
         }else {
             for (let i = 0; i < checkB.length; i++) {
                 checkB[i].checked = false;
-                console.log(checkB[i].checkd);
             }
+            pinput.value = 0;
+
         }
     }
+
+
 }
 
+$(function () {
+    // / header
+    $('.header-div').on('click', function (event) {
+        $('.header-div-div').slideDown(500);
+        $(this).css({background: '#fff'})
+        event.stopPropagation();
+
+        let scriptt = document.createElement('script');
+        scriptt.src = 'https://gensvr-n.vip.com/address/address?callback=getAddress1582784398338&areaid=0&newIsBind=0';
+        $('body').append($(scriptt))
+        $(scriptt).remove()
+    });
+
+    //点击小按钮让盒子隐藏
+    $('.header-div .top p').on('click', function (event) {
+        $('.header-div-div').hide();
+        $('.header-div').css({background: '#f5f5f5'})
+        event.stopPropagation();
+    });
 
 
+    // 省份点击按钮
+    $('.header-div-div .bottom .btn1').on('click', function (event) {
+        $(this).css({'border-top': '2px solid #f10180', 'background': '#fff'});
+        $('.header-div-div .bottom .btn2').css({'border-top': 'none', 'background': '#f8f8f8'});
+        $('.header-div div .bottom .bottom-l').show();
+        $('.header-div div .bottom .bottom-r').hide();
+        event.stopPropagation();
+
+        let scriptt = document.createElement('script');
+        scriptt.src = 'https://gensvr-n.vip.com/address/address?callback=getAddress1582784398338&areaid=0&newIsBind=0';
+        $('body').append($(scriptt))
+        $(scriptt).remove()
+    });
 
 
+    // 城市点击按钮
+    $('.header-div-div .bottom .btn2').on('click', function (event) {
+        $(this).css({'border-top': '2px solid #f10180', 'background': '#fff'});
+        $('.header-div-div .bottom .btn1').css({'border-top': 'none', 'background': '#f8f8f8'});
+        $('.header-div div .bottom .bottom-r').show();
+        $('.header-div div .bottom .bottom-l').hide();
+        event.stopPropagation();
+
+        let scriptt = document.createElement('script');
+        scriptt.src = 'https://gensvr-n.vip.com/address/address?callback=getAddress1582784284869&areaid=104101&newIsBind=0';
+        $('body').append($(scriptt))
+        $(scriptt).remove()
+    });
 
 
+    $(document).on('click', function (event) {
+        $('.header-div-div').hide();
+        $('.header-div').css({background: '#f5f5f5'})
+    });
 
 
+    // header
 
 
+})
 
+// 省
+function getAddress1582784398338(data) {
+    $('.bottom-l ul').children().remove()
+    data.list.forEach((item) => {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        a.href = 'javascript:;';
+        a.innerText = item.name;
+        li.appendChild(a);
+        $('.bottom-l ul').append(li)
+    })
+    $('.bottom-l ul li').first().remove()
+}
+
+// 城市
+function getAddress1582784284869(data) {
+    $('.bottom-r ul').children().remove()
+    data.list.forEach((item) => {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        a.href = 'javascript:;';
+        a.innerText = item.name;
+        li.appendChild(a);
+        $('.bottom-r ul').append(li)
+    })
+    $('.bottom-r ul li').first().remove()
+}
 
