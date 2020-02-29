@@ -266,7 +266,8 @@
 }
 
 #price .p2 {
-    margin-left: 286px;
+    position: relative;
+    left: 283px;
 }
 
 #price .p3 {

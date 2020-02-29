@@ -869,7 +869,6 @@ i {
 }
 
 .paging-b {
-    display: none;
 }
 
 
@@ -1095,6 +1094,39 @@ i {
     color: #f10180;
     transition: 1s;
     padding-left: 10px;
+}
+
+.footer-c {
+    background: #d7237e;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.footer-c i{
+    margin: 0 3px;
+    color: #fff;
+}
+.footer-c a {
+    color: #fff;
+}
+
+.footer-c a:hover {
+    color: #eee;
+}
+
+.footer-cc {
+    margin-top: 10px;
+    height: 90px;
+    text-align: center;
+    line-height: 19px;
+}
+
+.footer-b {
+    text-align: center;
+}
+.footer-b img {
+    display: inline-block;
 }
 
 

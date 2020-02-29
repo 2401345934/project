@@ -453,6 +453,36 @@ $(function () {
 
 
     // paging
+
+
+
+    // footer
+    footer('../json/footer1.json','.link1')
+    footer('../json/footer2.json','.link2')
+    footer('../json/footer3.json','.link3')
+    footer('../json/footer4.json','.link4')
+    footer('../json/footer5.json','.link5')
+  function footer(url,html){
+      $.ajax({
+          url: url,
+          dataType: 'json',
+          success: function (res) {
+              res.forEach((item) => {
+                  let dd = document.createElement('dd');
+                  let a = document.createElement('a');
+                  dd.appendChild(a);
+                  a.href = 'javascript:;';
+                  a.innerText = item;
+                  $(html).append(dd);
+              })
+          }
+      })
+  }
+
+
+
+
+    // footer
 })
 
 
