@@ -991,14 +991,16 @@ i {
 .paging-q-b .img77 {
     margin-left: 834px;
 }
+.list-wrap {
+    display: none;
 
+}
 
 .list {
     margin-top: 10px;
     overflow: hidden;
     display: flex;
     flex-wrap: wrap;
-    display: none;
 }
 
 .list-item {
@@ -1045,6 +1047,24 @@ i {
     margin-top: 5px;
 }
 
+.anniu1 ,.anniu2 ,.anniu3{
+    width: 150px;
+    cursor: pointer;
+    height: 30px;
+    background: slateblue;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+}
+.anniu1:active ,.anniu2:active,.anniu3:active{
+    background: red;
+    color: deepskyblue;
+}
+
+.anniu2 {
+}
+.anniu3 {
+}
 
 /*paging*/
 

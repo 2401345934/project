@@ -421,7 +421,7 @@ $(function () {
         if ($('.page-item-2').hasClass('active')) {
             $('.paging-b').hide();
             $('.paging-q').hide();
-            $('.list').show()
+            $('.list-wrap').show()
             $('.ppl').children().remove();
 
             let scriptt = document.createElement('script');
@@ -433,7 +433,7 @@ $(function () {
         if ($('.page-item-1').hasClass('active')) {
             $('.paging-b').show();
             $('.paging-q').hide();
-            $('.list').hide()
+            $('.list-wrap').hide()
             $('.ppl').children().remove();
             getPpl();
         }
@@ -442,7 +442,7 @@ $(function () {
             $('.paging-n').hide();
             $('.ppl').children().remove();
             $('.paging-q').show();
-            $('.list').hide()
+            $('.list-wrap').hide()
         }
 
         $('.paging-q .btn-dark').click(function () {
@@ -451,38 +451,87 @@ $(function () {
 
     })
 
+    paixu('.anniu1', true)
+    paixu('.anniu2', false)
+    function paixu(item, boolean) {
+        $(item).click(function () {
+            let arr = [];
+            //将商品列表保存到数组当中，一个数用来排序的数组，
+            $('.list-item').each(function (index) {
+                arr[index] = $(this);
+            })
 
-    // paging
+            if (boolean) {
+                // 升序
+                for (let i = 0; i < arr.length; i++) {
+                    for (let j = 0; j < arr.length - i - 1; j++) {
+                        let prev = arr[j].find('.price').children('.span3').html();
+                        let next = arr[j + 1].find('.price').children('.span3').html();
+                        if (parseFloat(prev) > parseFloat(next)) {
+                            let tmp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j + 1] = tmp;
+                        }
+                    }
+                }
+            }else {
+                //降序
+                for (let i = 0; i < arr.length; i++) {
+                    for (let j = 0; j < arr.length - i - 1; j++) {
+                        let prev = arr[j].find('.price').children('.span3').html();
+                        let next = arr[j + 1].find('.price').children('.span3').html();
+                        if (parseFloat(prev) < parseFloat(next)) {
+                            let tmp = arr[j];
+                            arr[j] = arr[j + 1];
+                            arr[j + 1] = tmp;
+                        }
+                    }
+                }
+            }
+
+            $('.list').empty()
+            for (let i = 0; i < arr.length; i++) {
+               $('.list').append(arr[i])
+            }
+            $('.list-item button').click(function () {
+                localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+                localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+                localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+                location.href = '../pages/Details.html';
+            })
+        })
+    }
 
 
-
-    // footer
-    footer('../json/footer1.json','.link1')
-    footer('../json/footer2.json','.link2')
-    footer('../json/footer3.json','.link3')
-    footer('../json/footer4.json','.link4')
-    footer('../json/footer5.json','.link5')
-  function footer(url,html){
-      $.ajax({
-          url: url,
-          dataType: 'json',
-          success: function (res) {
-              res.forEach((item) => {
-                  let dd = document.createElement('dd');
-                  let a = document.createElement('a');
-                  dd.appendChild(a);
-                  a.href = 'javascript:;';
-                  a.innerText = item;
-                  $(html).append(dd);
-              })
-          }
-      })
-  }
+// paging
 
 
+// footer
+    footer('../json/footer1.json', '.link1')
+    footer('../json/footer2.json', '.link2')
+    footer('../json/footer3.json', '.link3')
+    footer('../json/footer4.json', '.link4')
+    footer('../json/footer5.json', '.link5')
+
+    function footer(url, html) {
+        $.ajax({
+            url: url,
+            dataType: 'json',
+            success: function (res) {
+                res.forEach((item) => {
+                    let dd = document.createElement('dd');
+                    let a = document.createElement('a');
+                    dd.appendChild(a);
+                    a.href = 'javascript:;';
+                    a.innerText = item;
+                    $(html).append(dd);
+                })
+            }
+        })
+    }
 
 
-    // footer
+// footer
 })
 
 
@@ -616,7 +665,6 @@ function getSubCategory30066(data) {
     $('.suspension-ul4-div').children().remove()
     for (let i = 1; i < data.data.data.sectionList.length; i++) {
         let res = data.data.data.sectionList[i];
-        console.log(res.category.children);
         let dl = document.createElement('dl');
         let dt = document.createElement('dt');
         let dd = document.createElement('dd');
@@ -881,4 +929,5 @@ function jQuery1102047673596901053505_1582887585969(data) {
         localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
         location.href = '../pages/Details.html';
     })
+
 }
