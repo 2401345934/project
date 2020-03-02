@@ -106,8 +106,8 @@ $(function () {
     // nav
 
     $.ajax({
-        url: '../json/nav.json',
-        type: 'post',
+        url: '../lib/json/nav.json',
+        type: 'get',
         dataType: 'json',
         success: function (res) {
             res.forEach((item) => {
@@ -150,8 +150,8 @@ $(function () {
     /*suspension*/
 
     $.ajax({
-        url: '../json/suspension.json',
-        type: 'post',
+        url: '../lib/json/suspension.json',
+        type: 'get',
         dataType: 'json',
         success: function (res) {
             res.forEach((item) => {
@@ -288,7 +288,7 @@ $(function () {
 
     $.ajax({
         data: 'json',
-        url: '../json/suspension2.json',
+        url: '../lib/json/suspension2.json',
         type: 'get',
         success: function (res) {
             res.forEach((item) => {
@@ -312,8 +312,8 @@ $(function () {
 
 // 初始化一个Swiper实例，给当前的Swiper实例添加配置项
     $.ajax({
-        url: '../json/banner.json',
-        type: 'post',
+        url: '../lib/json/banner.json',
+        type: 'get',
         dataType: 'json',
         success: function (res) {
             res.forEach((item) => {
@@ -384,8 +384,8 @@ $(function () {
 
     function getPpl() {
         $.ajax({
-            url: '../json/ppl.json',
-            type: 'post',
+            url: '../lib/json/ppl.json',
+            type: 'get',
             dataType: 'json',
             success: function (res) {
                 res.forEach((item) => {
@@ -507,11 +507,11 @@ $(function () {
 
 
 // footer
-    footer('../json/footer1.json', '.link1')
-    footer('../json/footer2.json', '.link2')
-    footer('../json/footer3.json', '.link3')
-    footer('../json/footer4.json', '.link4')
-    footer('../json/footer5.json', '.link5')
+    footer('../lib/json/footer1.json', '.link1')
+    footer('../lib/json/footer2.json', '.link2')
+    footer('../lib/json/footer3.json', '.link3')
+    footer('../lib/json/footer4.json', '.link4')
+    footer('../lib/json/footer5.json', '.link5')
 
     function footer(url, html) {
         $.ajax({

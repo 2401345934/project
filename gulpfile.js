@@ -62,12 +62,6 @@ const fontHandler = () => {
         .pipe(gulp.dest('./dist/font'))
 }
 
-// 移动json
-const jsonHandler = () => {
-    return gulp.src('./src/json/**')
-        .pipe(gulp.dest('./dist/json'))
-}
-
 
 // 移动公PHP
 const phpHandler = () => {
@@ -89,4 +83,13 @@ const watchHandler = () => {
     gulp.watch('./src/php/**',phpHandler)
 }
 
-module.exports.default = gulp.series(delHandler,gulp.parallel(cssHandler,htmlHandler,jsHandler,imgHandler,libHandler,phpHandler,fontHandler,jsonHandler),watchHandler)
+const serverHandler = () => {
+    return gulp.src('./dist')
+        .pipe(webserver({
+            port: 8088,    //端口号
+            open: './pages/index.html',   //默认打开的首页 从dist 下面开始书写
+            livereload: true,   //热重启 自动刷新浏览器
+        }))
+}
+
+module.exports.default = gulp.series(delHandler,gulp.parallel(cssHandler,htmlHandler,imgHandler,libHandler,phpHandler,fontHandler,jsHandler),serverHandler,watchHandler)
