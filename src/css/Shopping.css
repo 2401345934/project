@@ -293,3 +293,15 @@ footer p {
     top: 128px;
     left: 13px;
 }
+
+.checked {
+    width: 60px;
+    height: 60px;
+}
+
+.p4 {
+    position: absolute;
+    left: 20px;
+    color: red;
+    cursor: pointer;
+}

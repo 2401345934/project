@@ -1,9 +1,6 @@
-
-
 let box = document.querySelector("#box")
 let ul = document.querySelector("ul")
 
-console.log($('#box').children('table'));
 
 let jsonStr = localStorage.getItem('carts');
 let arr = null;
@@ -12,7 +9,6 @@ if (jsonStr) {
 } else {
     arr = [];
 }
-
 
 
 let btnArr = document.querySelectorAll(".addC")
@@ -47,8 +43,7 @@ upData()
 function upData() {
     let h = ""
 
-   arr.forEach( (v) => {
-
+    arr.forEach((v) => {
         h += `
               <table>
             <tr style="margin-top: 60px; display: inline-block" >
@@ -66,10 +61,50 @@ function upData() {
             </tr>
     </table>
             `
-})
+    })
 
 
-box.innerHTML = h
+    box.innerHTML = h
+
+
+    function gxx() {
+        $('.checked').on('click', function () {
+            if ($('.checked').length === $('.checked:checked').length) {
+                $('#checkbox').prop('checked', true)
+            } else {
+                $('#checkbox').prop('checked', false)
+            }
+
+            if ($('#checkbox').prop('checked')) {
+                let checkB = document.querySelectorAll('.checked');
+                let tda = document.querySelectorAll('.tda');
+                let pinput = document.querySelector('.pinput');
+                for (let i = 0; i < checkB.length; i++) {
+                    checkB[i].checked = true;
+                    if (checkB[i].checked) {
+                        $('#checkbox').prop('checked', true)
+                    }
+                }
+                let sum = 0;
+                tda.forEach((item) => {
+                    sum += parseInt(item.innerHTML);
+                })
+                pinput.value = sum;
+            }
+        })
+    }
+
+
+    $('.p4').click(function () {
+        let jsonStr = localStorage.getItem('carts');
+        if (jsonStr) {
+            alert('清空成功');
+            localStorage.removeItem('carts')
+            location.reload();
+        } else {
+            alert('您购物车还没有商品怎么清空呢');
+        }
+    })
 
 
 //删除功能 如果点击了删除按钮就让对应的删除 还让本地存储中删除
@@ -81,7 +116,10 @@ box.innerHTML = h
             let pid = this.getAttribute('data-id');
             arr = arr.filter(v => v.priceStr != pid);
             localStorage.setItem('carts', JSON.stringify(arr))
-
+            $('.checkbox').prop('checked', false)
+            upData()
+            gxx()
+            gxInp()
         }
     }
 
@@ -100,9 +138,29 @@ box.innerHTML = h
             }
             localStorage.setItem('carts', JSON.stringify(arr));
             upData()
+            gxInp()
+            gxx()
         }
     }
 
+
+    function gxInp() {
+        let checkB = document.querySelectorAll('.checked');
+        let tda = document.querySelectorAll('.tda');
+        let pinput = document.querySelector('.pinput');
+        for (let i = 0; i < checkB.length; i++) {
+            checkB[i].checked = true;
+            if (checkB[i].checked) {
+                $('#checkbox').prop('checked', true)
+            }
+        }
+        let sum = 0;
+        tda.forEach((item) => {
+            sum += parseInt(item.innerHTML);
+            console.log(item.innerHTML);
+        })
+        pinput.value = sum;
+    }
 
 // 加号功能
     let jiaB = document.querySelectorAll('.jiaB');
@@ -113,9 +171,10 @@ box.innerHTML = h
             obj.num++;
             localStorage.setItem('carts', JSON.stringify(arr));
             upData()
+            gxInp()
+            gxx()
         }
     }
-
 
 
 // 减号功能
@@ -131,6 +190,8 @@ box.innerHTML = h
             }
             localStorage.setItem('carts', JSON.stringify(arr));
             upData()
+            gxInp()
+            gxx()
         }
     }
 
@@ -138,15 +199,14 @@ box.innerHTML = h
 
     let checkB = document.querySelectorAll('.checked');
     let p = document.querySelectorAll('#price p')[0];
-    let pinput  = document.querySelector('.pinput');
-
+    let pinput = document.querySelector('.pinput');
 
 
 //全选
     let c = document.querySelector('#checkbox');
     let tda = document.querySelectorAll('.tda');
-    c.onclick =function () {
-        if (c.checked){
+    c.onclick = function () {
+        if (c.checked) {
             for (let i = 0; i < checkB.length; i++) {
                 checkB[i].checked = true;
             }
@@ -157,7 +217,7 @@ box.innerHTML = h
             })
             pinput.value = sum;
 
-        }else {
+        } else {
             for (let i = 0; i < checkB.length; i++) {
                 checkB[i].checked = false;
             }
@@ -227,6 +287,37 @@ $(function () {
 
 
     // header
+
+
+    // checked
+    gxx()
+
+    function gxx() {
+        $('.checked').on('click', function () {
+            if ($('.checked').length === $('.checked:checked').length) {
+                $('#checkbox').prop('checked', true)
+            } else {
+                $('#checkbox').prop('checked', false)
+            }
+
+            if ($('#checkbox').prop('checked')) {
+                let checkB = document.querySelectorAll('.checked');
+                let tda = document.querySelectorAll('.tda');
+                let pinput = document.querySelector('.pinput');
+                for (let i = 0; i < checkB.length; i++) {
+                    checkB[i].checked = true;
+                    if (checkB[i].checked) {
+                        $('#checkbox').prop('checked', true)
+                    }
+                }
+                let sum = 0;
+                tda.forEach((item) => {
+                    sum += parseInt(item.innerHTML);
+                })
+                pinput.value = sum;
+            }
+        })
+    }
 
 
 })

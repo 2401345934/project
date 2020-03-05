@@ -456,6 +456,7 @@ $(function () {
     function paixu(item, boolean) {
         $(item).click(function () {
             let arr = [];
+
             //将商品列表保存到数组当中，一个数用来排序的数组，
             $('.list-item').each(function (index) {
                 arr[index] = $(this);
@@ -502,6 +503,72 @@ $(function () {
         })
     }
 
+
+    $('.fy span').click(function () {
+        $(this).addClass('acti').siblings().removeClass('acti')
+
+        if ($('.span11').hasClass('acti')){
+            $.ajax({
+                url:'../lib/json/fy2.json',
+                dataType:'json',
+                success: function (data) {
+                    let list = document.querySelector('.list');
+                    let h = '';
+                    let arr = data.data.items.slice(0,20)
+                    arr.forEach((item) => {
+                        h += `
+         <div class="list-item">
+                <img src="${item.goodsImageTags.image5.image}" alt="...">
+                <div class="price"><span>快抢价</span><span class="span3">${item.goodsPriceTag.marketPrice}</span></div>
+                <p>${item.goodsName}</p>
+                <button type="button" class="btn btn-info" >点击查看详情</button>
+            </div>
+        `;
+                    })
+                    list.innerHTML = h;
+
+                    $('.list-item button').click(function () {
+                        localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+                        localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+                        localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+                        location.href = '../pages/Details.html';
+                    })
+                }
+            })
+        }
+
+
+        if ($('.span22').hasClass('acti')){
+            $.ajax({
+                url:'../lib/json/fy2.json',
+                dataType:'json',
+                success: function (data) {
+                    let list = document.querySelector('.list');
+                    let h = '';
+                    let arr = data.data.items.slice(20,50)
+                    arr.forEach((item) => {
+                        h += `
+         <div class="list-item">
+                <img src="${item.goodsImageTags.image5.image}" alt="...">
+                <div class="price"><span>快抢价</span><span class="span3">${item.goodsPriceTag.marketPrice}</span></div>
+                <p>${item.goodsName}</p>
+                <button type="button" class="btn btn-info" >点击查看详情</button>
+            </div>
+        `;
+                    })
+                    list.innerHTML = h;
+
+                    $('.list-item button').click(function () {
+                        localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+                        localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+                        localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+                        location.href = '../pages/Details.html';
+                    })
+                }
+            })
+        }
+
+    })
 
 // paging
 
@@ -910,7 +977,8 @@ function getAddress1582784284869(data) {
 function jQuery1102047673596901053505_1582887585969(data) {
     let list = document.querySelector('.list');
     let h = '';
-    data.data.items.forEach((item) => {
+    let arr = data.data.items.slice(0,20)
+    arr.forEach((item) => {
         h += `
          <div class="list-item">
                 <img src="${item.goodsImageTags.image5.image}" alt="...">
@@ -919,7 +987,6 @@ function jQuery1102047673596901053505_1582887585969(data) {
                 <button type="button" class="btn btn-info" >点击查看详情</button>
             </div>
         `;
-
     })
     list.innerHTML = h;
 
@@ -931,3 +998,4 @@ function jQuery1102047673596901053505_1582887585969(data) {
     })
 
 }
+
