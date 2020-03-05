@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../font/iconfont.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/Shopping.css">
+</head>
+<body>
+
+<!--头部-->
+<div class="header-wrap">
+    <div class="header bx">
+        <div class="header-div">开封市
+            <i></i>
+            <div class="header-div-div">
+                <div class="top">
+                    <h4>请选择你所在的收货地址</h4>
+                    <p>x</p>
+                </div>
+                <div class="bottom">
+                    <p class="btn1">省份</p>
+                    <p class="btn2">城市</p>
+                    <div class="bottom-r">
+                        <ul>
+                        </ul>
+
+                    </div>
+                    <div class="bottom-l">
+                        <ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ul>
+            <li><a href="./login.html" class="dl">请登录</a>
+                <i>|</i>
+
+            </li>
+            <li><a href="./register.html">注册</a><i>|</i></li>
+            <li><a href="javascript:;"><span class="iconfont icon-lihe span1"></span>签到有礼</a><i>|</i></li>
+            <li><a href="javascript:;">我的订单</a><i>|</i></li>
+            <li><a href="javascript:;">我的特卖</a><i>|</i></li>
+            <li><a href="javascript:;">会员俱乐部</a><i>|</i></li>
+            <li><a href="javascript:;">客户服务</a><i>|</i></li>
+            <li><a href="javascript:;"> <span class="iconfont icon-shouji span2"></span>
+                手机版</a><i>|</i></li>
+            <li><a href="javascript:;">更多</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="price">
+    <p class="p1">总价格
+        <input type="text" class="pinput" disabled>
+    </p>
+    <p class="p3"><a href="./index.html">回首页</a></p>
+    <p class="p4">清空购物车</p>
+    <p class="p2">全选</p>
+    <input type="checkbox" id="checkbox" style="margin-left: 286px;">
+</div>
+<div class="wrap">
+    <table>
+        <tr>
+            <td>选中状态</td>
+            <td colspan="2">商品名称</td>
+            <td>单价</td>
+            <td>数量</td>
+            <td>总价</td>
+            <td>操作</td>
+        </tr>
+    </table>
+</div>
+<div id="box">
+</div>
+
+
+<script src="../js/Shopping.js"></script>
+
+</body>
+</html>

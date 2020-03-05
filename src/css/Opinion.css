@@ -1,0 +1,39 @@
+html , body{
+    height: 100%;
+    background: url("../img/body.jpg");
+    color: #fff;
+    font-size: 16px;
+}
+
+.footer p , .footer div {
+    float: right;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    float: right;
+    margin-right: 10px;
+}
+
+.content {
+    overflow: hidden;
+    position: relative;
+    top: 30px;
+    left: 30px;
+}
+
+#exampleModal{
+    color: #000;
+}
+
+.btn-warning {
+    margin-left: 300px;
+    margin-top: 20px;
+}
+#collapseExample {
+    color: #000;
+}
+
+.card-body {
+    margin-top: 0 !important;
+}
