@@ -291,7 +291,6 @@ $(function () {
 
     // checked
     gxx()
-
     function gxx() {
         $('.checked').on('click', function () {
             if ($('.checked').length === $('.checked:checked').length) {
@@ -315,11 +314,14 @@ $(function () {
                     sum += parseInt(item.innerHTML);
                 })
                 pinput.value = sum;
+            }else {
+                $('.pinput').val(0)
             }
+
+
+
         })
     }
-
-
 })
 
 // 省

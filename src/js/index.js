@@ -417,7 +417,7 @@ $(function () {
 
     $('.page-item').click(function () {
         $(this).addClass('active').siblings().removeClass('active')
-
+        $('.list-wrap button').removeClass('acti')
         if ($('.page-item-2').hasClass('active')) {
             $('.paging-b').hide();
             $('.paging-q').hide();
@@ -451,70 +451,91 @@ $(function () {
 
     })
 
-    paixu('.anniu1', true)
-    paixu('.anniu2', false)
-    function paixu(item, boolean) {
-        $(item).click(function () {
-            let arr = [];
+    $('.list-wrap button').click(function () {
+        $(this).addClass('acti').siblings().removeClass('acti')
+    })
 
-            //将商品列表保存到数组当中，一个数用来排序的数组，
-            $('.list-item').each(function (index) {
-                arr[index] = $(this);
-            })
-
-            if (boolean) {
-                // 升序
-                for (let i = 0; i < arr.length; i++) {
-                    for (let j = 0; j < arr.length - i - 1; j++) {
-                        let prev = arr[j].find('.price').children('.span3').html();
-                        let next = arr[j + 1].find('.price').children('.span3').html();
-                        if (parseFloat(prev) > parseFloat(next)) {
-                            let tmp = arr[j];
-                            arr[j] = arr[j + 1];
-                            arr[j + 1] = tmp;
-                        }
-                    }
-                }
-            }else {
-                //降序
-                for (let i = 0; i < arr.length; i++) {
-                    for (let j = 0; j < arr.length - i - 1; j++) {
-                        let prev = arr[j].find('.price').children('.span3').html();
-                        let next = arr[j + 1].find('.price').children('.span3').html();
-                        if (parseFloat(prev) < parseFloat(next)) {
-                            let tmp = arr[j];
-                            arr[j] = arr[j + 1];
-                            arr[j + 1] = tmp;
-                        }
-                    }
-                }
-            }
-
-            $('.list').empty()
-            for (let i = 0; i < arr.length; i++) {
-               $('.list').append(arr[i])
-            }
-            $('.list-item button').click(function () {
-                localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
-                localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
-                localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
-                location.href = '../pages/Details.html';
-            })
-        })
-    }
 
 
     $('.fy span').click(function () {
         $(this).addClass('acti').siblings().removeClass('acti')
 
-        if ($('.span11').hasClass('acti')){
+
+        if ($('.span11').hasClass('acti')) {
             $.ajax({
-                url:'../lib/json/fy2.json',
-                dataType:'json',
+                url: '../lib/json/fy2.json',
+                dataType: 'json',
                 success: function (data) {
                     let list = document.querySelector('.list');
                     let h = '';
-                    let arr = data.data.items.slice(0,20)
+                    let arr = data.data.items
+                    arr = arr.slice(0,20)
+                    arr.forEach((item) => {
+                        h += `
+         <div class="list-item">
+                <img src="${item.goodsImageTags.image5.image}" alt="...">
+                <div class="price"><span>快抢价</span><span class="span3">${item.goodsPriceTag.marketPrice}</span></div>
+                <p>${item.goodsName}</p>
+                <button type="button" class="btn btn-info" >点击查看详情</button>
+            </div>
+        `;
+                    })
+                    list.innerHTML = h;
+                    $('.list-item button').click(function () {
+                        localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+                        localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+                        localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+                        location.href = '../pages/Details.html';
+                    })
+                }
+            })
+        }
+
+
+        if ($('.span11').hasClass('acti') && $('.anniu1').hasClass('acti')) {
+            $.ajax({
+                url: '../lib/json/fy2.json',
+                dataType: 'json',
+                success: function (data) {
+                    let list = document.querySelector('.list');
+                    let h = '';
+                    let arr = data.data.items
+                    arr.sort(function (a, b) {
+                        return a.goodsPriceTag.marketPrice - b.goodsPriceTag.marketPrice
+                    })
+                    arr = arr.slice(0,20)
+                    arr.forEach((item) => {
+                        h += `
+         <div class="list-item">
+                <img src="${item.goodsImageTags.image5.image}" alt="...">
+                <div class="price"><span>快抢价</span><span class="span3">${item.goodsPriceTag.marketPrice}</span></div>
+                <p>${item.goodsName}</p>
+                <button type="button" class="btn btn-info" >点击查看详情</button>
+            </div>
+        `;
+                    })
+                    list.innerHTML = h;
+
+                    $('.list-item button').click(function () {
+                        localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+                        localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+                        localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+                        location.href = '../pages/Details.html';
+                    })
+                }
+            })
+        }
+
+        if ($('.span22').hasClass('acti') ) {
+            $.ajax({
+                url: '../lib/json/fy2.json',
+                dataType: 'json',
+                success: function (data) {
+                    let list = document.querySelector('.list');
+                    let h = '';
+                    let arr = data.data.items
+                    arr = arr.slice(20,50)
+
                     arr.forEach((item) => {
                         h += `
          <div class="list-item">
@@ -538,14 +559,93 @@ $(function () {
         }
 
 
-        if ($('.span22').hasClass('acti')){
+        if ($('.span22').hasClass('acti') && $('.anniu1').hasClass('acti')) {
             $.ajax({
-                url:'../lib/json/fy2.json',
-                dataType:'json',
+                url: '../lib/json/fy2.json',
+                dataType: 'json',
                 success: function (data) {
                     let list = document.querySelector('.list');
                     let h = '';
-                    let arr = data.data.items.slice(20,50)
+                    let arr = data.data.items
+
+                    arr.sort(function (a, b) {
+                        return a.goodsPriceTag.marketPrice - b.goodsPriceTag.marketPrice
+                    })
+                    arr = arr.slice(20,50)
+
+                    arr.forEach((item) => {
+                        h += `
+         <div class="list-item">
+                <img src="${item.goodsImageTags.image5.image}" alt="...">
+                <div class="price"><span>快抢价</span><span class="span3">${item.goodsPriceTag.marketPrice}</span></div>
+                <p>${item.goodsName}</p>
+                <button type="button" class="btn btn-info" >点击查看详情</button>
+            </div>
+        `;
+                    })
+                    list.innerHTML = h;
+
+                    $('.list-item button').click(function () {
+                        localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+                        localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+                        localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+                        location.href = '../pages/Details.html';
+                    })
+                }
+            })
+        }
+
+
+
+        if ($('.span11').hasClass('acti') && $('.anniu2').hasClass('acti')) {
+            $.ajax({
+                url: '../lib/json/fy2.json',
+                dataType: 'json',
+                success: function (data) {
+                    let list = document.querySelector('.list');
+                    let h = '';
+                    let arr = data.data.items
+                    arr.sort(function (a, b) {
+                        return b.goodsPriceTag.marketPrice - a.goodsPriceTag.marketPrice
+                    })
+                    arr = arr.slice(0,20)
+                    arr.forEach((item) => {
+                        h += `
+         <div class="list-item">
+                <img src="${item.goodsImageTags.image5.image}" alt="...">
+                <div class="price"><span>快抢价</span><span class="span3">${item.goodsPriceTag.marketPrice}</span></div>
+                <p>${item.goodsName}</p>
+                <button type="button" class="btn btn-info" >点击查看详情</button>
+            </div>
+        `;
+                    })
+                    list.innerHTML = h;
+
+                    $('.list-item button').click(function () {
+                        localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+                        localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+                        localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+                        location.href = '../pages/Details.html';
+                    })
+                }
+            })
+        }
+
+
+        if ($('.span22').hasClass('acti') && $('.anniu2').hasClass('acti')) {
+            $.ajax({
+                url: '../lib/json/fy2.json',
+                dataType: 'json',
+                success: function (data) {
+                    let list = document.querySelector('.list');
+                    let h = '';
+                    let arr = data.data.items
+
+                    arr.sort(function (a, b) {
+                        return b.goodsPriceTag.marketPrice - a.goodsPriceTag.marketPrice
+                    })
+                    arr = arr.slice(20,50)
+
                     arr.forEach((item) => {
                         h += `
          <div class="list-item">
@@ -569,6 +669,66 @@ $(function () {
         }
 
     })
+
+
+    paixu('.anniu1',1)
+    paixu('.anniu2',0)
+
+    function paixu(item,num) {
+        $(item).click(function () {
+            let arr = [];
+            //将商品列表保存到数组当中，一个数用来排序的数组，
+            $.ajax({
+                dataType: 'json',
+                url: '../lib/json/fy2.json',
+                success: function (res) {
+                    let h = '';
+                    arr = res.data.items;
+
+                    if (num >=1){
+                        arr.sort(function (a, b) {
+                            return a.goodsPriceTag.marketPrice - b.goodsPriceTag.marketPrice
+                        })
+                    } else {
+                        arr.sort(function (a, b) {
+                            return b.goodsPriceTag.marketPrice - a.goodsPriceTag.marketPrice
+                        })
+                    }
+
+
+
+                    let array = arr.splice(0, 20)
+                    $('.list').empty();
+
+                    array.forEach((item) => {
+                        h += `
+         <div class="list-item">
+                <img src="${item.goodsImageTags.image5.image}" alt="...">
+                <div class="price"><span>快抢价</span><span class="span3">${item.goodsPriceTag.marketPrice}</span></div>
+                <p>${item.goodsName}</p>
+                <button type="button" class="btn btn-info" >点击查看详情</button>
+            </div>
+        `;
+                    })
+                    $('.list').html(h);
+
+
+                    $('.list-item button').click(function () {
+                        localStorage.setItem('img', JSON.stringify($(this).prevAll('img').prop('src')));
+                        localStorage.setItem('name', JSON.stringify($(this).prevAll('p').text()));
+                        localStorage.setItem('price', JSON.stringify($(this).prevAll('.price').find('.span3').text()));
+                        location.href = '../pages/Details.html';
+                    })
+                }
+            })
+
+            $('.fy .span11').addClass('acti');
+            $('.fy .span22') .removeClass('acti');
+        })
+
+
+    }
+
 
 // paging
 
@@ -656,7 +816,6 @@ function getSubCategory30074(data) {
     $('.suspension-ul4-div').children().remove()
     for (let i = 1; i < data.data.data.sectionList.length; i++) {
         let res = data.data.data.sectionList[i];
-        console.log(res.category.children);
         let dl = document.createElement('dl');
         let dt = document.createElement('dt');
         let dd = document.createElement('dd');
@@ -977,7 +1136,7 @@ function getAddress1582784284869(data) {
 function jQuery1102047673596901053505_1582887585969(data) {
     let list = document.querySelector('.list');
     let h = '';
-    let arr = data.data.items.slice(0,20)
+    let arr = data.data.items.slice(0, 20)
     arr.forEach((item) => {
         h += `
          <div class="list-item">
